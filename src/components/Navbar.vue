@@ -7,7 +7,7 @@
           alt="logo"
           class="logo"
         >
-      </router-link>|
+      </router-link>
       <router-link to="/about">About</router-link>
 
       <a href="/top" class="router-link-exact-active router-link-active">Top</a>
@@ -37,7 +37,7 @@ export default {
   background-color: #f60;
   position: fixed;
   z-index: 999;
-  height: 55px;
+  height: auto;
   top: 0;
   left: 0;
   right: 0;
@@ -46,7 +46,7 @@ export default {
   max-width: 800px;
   box-sizing: border-box;
   margin: 0px auto;
-  padding: 15px 5px;
+  padding: 5px 5px;
 }
 .header a {
   color: rgba(255, 255, 255, 0.8);

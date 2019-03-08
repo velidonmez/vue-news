@@ -1,7 +1,9 @@
 <template>
-  <div class="home">
+  <div class="container home">
     <Navbar/>
-    <News></News>
+    <div class="row">
+      <News class="col-lg-8 mx-auto"></News>
+    </div>
   </div>
 </template>
 

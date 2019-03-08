@@ -2,17 +2,19 @@
   <div class="news">
     <ul class="news-list">
       <li v-for="item in news" :key="item.id" class="news-item">
-        <span class="score">{{item.score}}</span>
-        <span class="title">{{item.title}}</span>
+        <span class="score">{{ item.score }}</span>
+        <router-link :to="{name:'news', params:{newsId:item.id}}">
+          <span class="title">{{ item.title }}</span>
+        </router-link>
         <br>
         <span class="meta">
           <span class="by">
             by
-            {{item.by}} | 
+            {{ item.by }} |
           </span>
-          <span class="time">{{item.time}} | </span>
+          <span class="time">{{ item.time }} |</span>
         </span>
-        <span class="label">{{item.type}}</span>
+        <span class="label">{{ item.type }}</span>
       </li>
     </ul>
   </div>
@@ -36,6 +38,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 .news-list {
   position: absolute;
   margin: 30px 0;
