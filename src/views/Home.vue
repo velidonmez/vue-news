@@ -1,6 +1,6 @@
 <template>
   <div class="container home">
-    <Navbar/>
+    <Navbar />
     <div class="row">
       <News class="col-lg-8 mx-auto"></News>
     </div>

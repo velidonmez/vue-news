@@ -1,9 +1,10 @@
 <template>
   <div class="news">
     <ul class="news-list">
-      <li v-for="item in news" :key="item.id" class="news-item">
+      <li v-for="item in list"
+      :key="item.id" class="news-item">
         <span class="score">{{ item.score }}</span>
-        <router-link :to="{name:'news', params:{newsId:item.id}}">
+        <router-link :key="details" :to="{name:'news', params: {newsId:item.id}}">
           <span class="title">{{ item.title }}</span>
         </router-link>
         <br>
@@ -18,27 +19,51 @@
       </li>
     </ul>
   </div>
+  <infinite-loading @infinite="infiniteHandler"></infinite-loading>
 </template>
 
 <script>
+import InfiniteLoading from 'vue-infinite-loading';
+import axios from 'axios';
 import news from "@/assets/news.json";
 
 export default {
   data() {
     return {
+      page: 1,
+      list: [],
       news: news
     };
+  },
+  components: {
+    InfiniteLoading,
   },
   name: "News",
   props: {
     msg: String
+  },
+  methods: {
+    infiniteHandler($state) {
+      axios.get(api, {
+        params: {
+          page: this.page,
+        },
+      }).then(({ data }) => {
+        if (data.hits.length) {
+          this.page += 1;
+          this.list.push(...data.hits);
+          $state.loaded();
+        } else {
+          $state.complete();
+        }
+      });
+    },
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 .news-list {
   position: absolute;
   margin: 30px 0;

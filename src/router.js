@@ -25,7 +25,12 @@ export default new Router({
     {
       path: "/news/:newsId",
       name: "news",
+      props: true,
       component: () => import("./views/NewsDetails.vue")
+    },
+    {
+      path: "*",
+      redirect: { name: "home" }
     }
   ]
 });

@@ -13,13 +13,13 @@
 import NewsContent from "@/components/NewsContent.vue";
 import Navbar from "@/components/Navbar.vue";
 import News from "@/components/News.vue";
-import news from "@/assets/news.json";
-import { watch } from "fs";
+import newsData from "@/assets/news.json";
 
 export default {
   data() {
     return {
-      news: this.fillNewsDetails()
+      news: this.fillNewsDetails(),
+      id: null
     };
   },
   name: "newsdetails",
@@ -31,19 +31,19 @@ export default {
   methods: {
     fillNewsDetails: function() {
       const id = this.$route.params.newsId;
-      return news.find(function(el) {
+      return newsData.find(function(el) {
         return el.id === id;
       });
     }
   },
   watch: {
-    $route(to, from) {
-      // Put your logic here...
-      console.log(this.$route.params.newsId);
+    $route() {
+      // react to route changes...
       const id = this.$route.params.newsId;
-      return news.find(function(el) {
+      this.news = newsData.find(function(el) {
         return el.id === id;
       });
+      console.log(this.$route.params.newsId);
     }
   }
 };

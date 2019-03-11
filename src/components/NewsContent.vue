@@ -1,5 +1,5 @@
 <template>
-  <article class="news">
+  <article class="newsContent">
     <h1>{{ title }}</h1>
     <p>{{ details }}</p>
   </article>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "News",
+  name: "NewsContent",
   props: {
     title: String,
     details: String
