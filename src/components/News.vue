@@ -1,10 +1,9 @@
 <template>
   <div class="news">
     <ul class="news-list">
-      <li v-for="item in list"
-      :key="item.id" class="news-item">
+      <li v-for="(item, $index) in list" :key="$index" class="news-item">
         <span class="score">{{ item.score }}</span>
-        <router-link :key="details" :to="{name:'news', params: {newsId:item.id}}">
+        <router-link :to="{name:'news', params: {newsId:item.id}}">
           <span class="title">{{ item.title }}</span>
         </router-link>
         <br>
@@ -17,26 +16,26 @@
         </span>
         <span class="label">{{ item.type }}</span>
       </li>
+      <infinite-loading @infinite="infiniteHandler"></infinite-loading>
     </ul>
   </div>
-  <infinite-loading @infinite="infiniteHandler"></infinite-loading>
 </template>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading';
-import axios from 'axios';
+import InfiniteLoading from "vue-infinite-loading";
+import axios from "axios";
 import news from "@/assets/news.json";
 
 export default {
   data() {
     return {
-      page: 1,
+      page: 0,
       list: [],
       news: news
     };
   },
   components: {
-    InfiniteLoading,
+    InfiniteLoading
   },
   name: "News",
   props: {
@@ -44,20 +43,24 @@ export default {
   },
   methods: {
     infiniteHandler($state) {
-      axios.get(api, {
-        params: {
-          page: this.page,
-        },
-      }).then(({ data }) => {
-        if (data.hits.length) {
-          this.page += 1;
-          this.list.push(...data.hits);
-          $state.loaded();
-        } else {
-          $state.complete();
-        }
-      });
-    },
+      axios
+        .get("news.json", {
+          params: {
+            page: this.page
+          }
+        })
+        .then(({ data }) => {
+          if (data.hits.length) {
+            this.page += 1;
+            this.list.push(...data.hits);
+            $state.loaded();
+            console.log(this.page);
+          } else {
+            $state.complete();
+          }
+        });
+      console.log(this.list);
+    }
   }
 };
 </script>
