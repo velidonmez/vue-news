@@ -2,19 +2,19 @@
   <div class="news">
     <ul class="news-list">
       <li v-for="(item, $index) in list" :key="$index" class="news-item">
-        <span class="score">{{ item.score }}</span>
-        <router-link :to="{name:'news', params: {newsId:item.id}}">
+        <span class="score">{{ item.points }}</span>
+        <router-link :to="{name:'news', params: {newsId:item.objectID}}">
           <span class="title">{{ item.title }}</span>
         </router-link>
         <br>
         <span class="meta">
           <span class="by">
             by
-            {{ item.by }} |
+            {{ item.author }} |
           </span>
-          <span class="time">{{ item.time }} |</span>
+          <span class="time">{{ item.created_at.split("T")[0] }} |</span>
         </span>
-        <span class="label">{{ item.type }}</span>
+        <span class="label">{{ item._tags[0] }}</span>
       </li>
       <infinite-loading @infinite="infiniteHandler"></infinite-loading>
     </ul>
@@ -22,20 +22,16 @@
 </template>
 
 <script>
-import InfiniteLoading from "vue-infinite-loading";
 import axios from "axios";
-import news from "@/assets/news.json";
-
+//import news from "@/assets/news.json";
+const api = "//hn.algolia.com/api/v1/search_by_date?tags=story";
 export default {
   data() {
     return {
       page: 0,
-      list: [],
-      news: news
+      list: []
+      //news: news
     };
-  },
-  components: {
-    InfiniteLoading
   },
   name: "News",
   props: {
@@ -44,7 +40,7 @@ export default {
   methods: {
     infiniteHandler($state) {
       axios
-        .get("news.json", {
+        .get(api, {
           params: {
             page: this.page
           }
@@ -61,6 +57,9 @@ export default {
         });
       console.log(this.list);
     }
+  },
+  mounted: function(){
+    this.$emit('update', this.list);
   }
 };
 </script>
