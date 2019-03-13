@@ -3,10 +3,10 @@
     <ul class="news-list">
       <li v-for="(item, $index) in list" :key="$index" class="news-item">
         <span class="score">{{ item.points }}</span>
-        <router-link :to="{name:'news', params: {newsId:item.objectID}}">
+        <router-link :to="{ name: 'news', params: { newsId: item.objectID } }">
           <span class="title">{{ item.title }}</span>
         </router-link>
-        <br>
+        <br />
         <span class="meta">
           <span class="by">
             by
@@ -50,16 +50,19 @@ export default {
             this.page += 1;
             this.list.push(...data.hits);
             $state.loaded();
-            console.log(this.page);
           } else {
             $state.complete();
           }
         });
-      console.log(this.list);
     }
   },
-  mounted: function(){
-    this.$emit('update', this.list);
+  updated: function() {
+    this.$nextTick(function() {
+      // Code that will run only after the
+      // entire view has been rendered
+      this.$emit("getNewsList", this.list);
+      console.log(this.list.length);
+    });
   }
 };
 </script>
