@@ -1,26 +1,37 @@
 <template>
-  <div class="news">
-    <ul class="news-list">
-      <li v-for="(item, $index) in list" :key="$index" class="news-item">
-        <span class="score">{{ item.points }}</span>
-        <router-link :to="{ name: 'news', params: { newsId: item.objectID } }">
-          <span class="title">{{ item.title }}</span>
-        </router-link>
-        <br />
-        <span class="meta">
-          <span class="by">
-            by
-            {{ item.author }} |
+  <div class="news d-flex flex-column">
+    <div class="wrapper">
+      <ul class="news-list">
+        <li
+          v-for="(item, $index) in list"
+          :key="$index"
+          class="news-item"
+          @click="scrollToTop"
+        >
+          <span class="score">{{ item.points }}</span>
+          <router-link
+            :to="{ name: 'news', params: { newsId: item.objectID } }"
+          >
+            <span class="title">{{ item.title }}</span>
+          </router-link>
+          <br />
+          <span class="meta">
+            <span class="by">
+              by
+              {{ item.author }} |
+            </span>
+            <span class="time">{{ item.created_at.split("T")[0] }} |</span>
           </span>
-          <span class="time">{{ item.created_at.split("T")[0] }} |</span>
-        </span>
-        <span class="label">{{ item._tags[0] }}</span>
-      </li>
-      <infinite-loading @infinite="infiniteHandler" spinner="waveDots"></infinite-loading>
-    </ul>
+          <span class="label">{{ item._tags[0] }}</span>
+        </li>
+        <infinite-loading
+          @infinite="infiniteHandler"
+          spinner="waveDots"
+        ></infinite-loading>
+      </ul>
+    </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 //import news from "@/assets/news.json";
@@ -38,6 +49,9 @@ export default {
     msg: String
   },
   methods: {
+    scrollToTop: function() {
+      document.documentElement.scrollTop = 0;
+    },
     infiniteHandler($state) {
       axios
         .get(api, {

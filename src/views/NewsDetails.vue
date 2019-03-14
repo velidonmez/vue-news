@@ -1,9 +1,13 @@
 <template>
   <div class="container newsdetails">
-    <Navbar/>
+    <Navbar />
     <div class="row">
       <news class="col-lg-4" @getNewsList="newsToData"></news>
-      <news-content class="col-lg-8" :title="news.title" :details="news.title"></news-content>
+      <news-content
+        class="col-lg-8"
+        :title="news.title"
+        :details="news.url"
+      ></news-content>
     </div>
   </div>
 </template>
@@ -17,7 +21,8 @@ export default {
     return {
       list: [],
       news: {
-        title: "loading..."
+        title: "loading...",
+        details: "loading..."
       }
     };
   },
@@ -38,9 +43,11 @@ export default {
     },
     fillNewsDetails: function() {
       const id = this.$route.params.newsId;
-      return this.list.find(function(el) {
-        return el.objectID === id;
-      }) || this.$router.push("/");
+      return (
+        this.list.find(function(el) {
+          return el.objectID === id;
+        }) || this.$router.push("/")
+      );
     }
   },
   watch: {
@@ -54,6 +61,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+/deep/ .wrapper ul {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
 .news-list {
   position: absolute;
   margin: 30px 0;

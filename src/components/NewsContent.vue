@@ -1,5 +1,5 @@
 <template>
-  <article class="newsContent">
+  <article class="d-flex flex-column newsContent">
     <h1>{{ title }}</h1>
     <p>{{ details }}</p>
   </article>
