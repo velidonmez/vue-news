@@ -1,6 +1,6 @@
 <template>
   <div class="container newsdetails">
-    <Navbar />
+    <Navbar/>
     <div class="row">
       <news class="col-lg-4" @getNewsList="newsToData"></news>
       <news-content class="col-lg-8" :title="news.title" :details="news.title"></news-content>
@@ -29,33 +29,24 @@ export default {
   },
   methods: {
     newsToData: function(list) {
-      this.list = list;
-      //console.log(JSON.stringify(list));
-      this.news = this.fillNewsDetails();
-      console.log(this.news);
+      try {
+        this.list = list;
+        this.news = this.fillNewsDetails();
+      } catch (error) {
+        throw new Error(error);
+      }
     },
     fillNewsDetails: function() {
       const id = this.$route.params.newsId;
-      //console.log(this.list);
-      if (this.list !== undefined) {
-        return this.list.find(function(el) {
-          return el.objectID === id;
-        });
-      } else {
-        return;
-      }
+      return this.list.find(function(el) {
+        return el.objectID === id;
+      }) || this.$router.push("/");
     }
   },
   watch: {
     $route() {
       // react to route changes...
-      /*const id = this.$route.params.newsId;
-      this.news = this.list.find(function(el) {
-        return el.id === id;
-      });*/
       this.news = this.fillNewsDetails();
-      console.log(this.$route.params.newsId);
-      console.log(this.news);
     }
   }
 };
