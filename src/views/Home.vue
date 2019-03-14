@@ -20,3 +20,8 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .home .row {height: auto}
+</style>
+

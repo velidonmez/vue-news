@@ -16,7 +16,7 @@
         </span>
         <span class="label">{{ item._tags[0] }}</span>
       </li>
-      <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+      <infinite-loading @infinite="infiniteHandler" spinner="waveDots"></infinite-loading>
     </ul>
   </div>
 </template>
