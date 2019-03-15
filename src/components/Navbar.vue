@@ -8,8 +8,8 @@
           class="logo"
         />
       </router-link>
-      <a @click="changeCategory('front_page')" href="#" class="router-link-exact-active router-link-active">Popüler</a>
-      <a href="/new">Güncel</a>
+      <a href="#" class="router-link-exact-active router-link-active">Popüler</a>
+      <a href="/">Güncel</a>
       <router-link to="/about">Hakkında</router-link>
     </nav>
   </header>
@@ -18,11 +18,6 @@
 <script>
 export default {
   name: "Navbar",
-  data() {
-    return {
-      category: "story"
-    };
-  },
   updated() {
     this.$nextTick(function() {
       // Code that will run only after the
@@ -30,11 +25,6 @@ export default {
       this.$emit("newsCategory", this.category);
       console.log(this.category);
     });
-  },
-  methods: {
-    changecategory(cat) {
-      this.category = cat;
-    }
   }
 };
 </script>
