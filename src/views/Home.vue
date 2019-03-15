@@ -1,5 +1,5 @@
 <template>
-  <div class="container home">
+  <div class="container-fluid home">
     <Navbar />
     <div class="row">
       <News class="col-lg-8 mx-auto"></News>

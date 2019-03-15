@@ -1,10 +1,12 @@
 <template>
-  <div class="container newsdetails">
-    <Navbar />
+  <div class="container-fluid news-details">
     <div class="row">
-      <news class="col-lg-4" @getNewsList="newsToData"></news>
+      <Navbar />
+    </div>
+    <div class="row">
+      <news class="col-lg-4 order-1" @getNewsList="newsToData"></news>
       <news-content
-        class="col-lg-8"
+        class="col-lg-8 order-0"
         :title="news.title"
         :details="news.url"
       ></news-content>
@@ -21,8 +23,8 @@ export default {
     return {
       list: [],
       news: {
-        title: "loading...",
-        details: "loading..."
+        title: "Yükleniyor...",
+        details: "Yükleniyor..."
       }
     };
   },
