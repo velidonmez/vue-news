@@ -24,10 +24,10 @@
           </span>
           <span class="label">{{ item._tags[0] }}</span>
         </li>
-        <infinite-loading
-          @infinite="infiniteHandler"
-          spinner="waveDots"
-        ></infinite-loading>
+        <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
+          <div slot="no-more">Liste sonu.</div>
+          <div slot="no-results">Sonuç bulunamadı.</div>
+        </infinite-loading>
       </ul>
     </div>
   </div>
