@@ -8,9 +8,8 @@
           class="logo"
         />
       </router-link>
-      <a href="/top" class="router-link-exact-active router-link-active">Top</a>
+      <a @click="changeCategory('front_page')" href="#" class="router-link-exact-active router-link-active">Popüler</a>
       <a href="/new">Güncel</a>
-      <a href="/show">Popüler</a>
       <router-link to="/about">Hakkında</router-link>
     </nav>
   </header>
@@ -18,7 +17,25 @@
 
 <script>
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  data() {
+    return {
+      category: "story"
+    };
+  },
+  updated() {
+    this.$nextTick(function() {
+      // Code that will run only after the
+      // entire view has been rendered
+      this.$emit("newsCategory", this.category);
+      console.log(this.category);
+    });
+  },
+  methods: {
+    changecategory(cat) {
+      this.category = cat;
+    }
+  }
 };
 </script>
 

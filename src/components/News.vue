@@ -24,7 +24,7 @@
           </span>
           <span class="label">{{ item._tags[0] }}</span>
         </li>
-        <infinite-loading :identifier="infiniteId" @infinite="infiniteHandler" spinner="waveDots">
+        <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
           <div slot="no-more">Liste sonu.</div>
           <div slot="no-results">Sonuç bulunamadı.</div>
         </infinite-loading>
@@ -41,9 +41,6 @@ export default {
     return {
       page: 0,
       list: [],
-      newsType: 'story',
-      infiniteId: +new Date(),
-      //news: news
     };
   },
   name: "News",
@@ -51,11 +48,6 @@ export default {
     msg: String
   },
   methods: {
-    changeType() {
-      this.page = 1;
-      this.list = [];
-      this.infiniteId += 1;
-    },
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
     },
@@ -63,8 +55,7 @@ export default {
       axios
         .get(api, {
           params: {
-            page: this.page,
-            tags: this.newsType
+            page: this.page
           }
         })
         .then(({ data }) => {
