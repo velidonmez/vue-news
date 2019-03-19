@@ -1,12 +1,11 @@
 <template>
-  <div class="container-fluid home">
+  <div class="container-fluid new">
     <Navbar />
     <div class="row">
       <p class="w-100"></p>
-      <p class="col-lg-8 mx-auto">lol</p>
     </div>
     <div class="row">
-      <News class="col-lg-8 mx-auto"></News>
+      <News category="fresh" class="col-lg-8 mx-auto"></News>
     </div>
   </div>
 </template>
@@ -17,7 +16,7 @@ import News from "@/components/News.vue";
 import Navbar from "@/components/Navbar.vue";
 
 export default {
-  name: "home",
+  name: "fresh",
   components: {
     News,
     Navbar

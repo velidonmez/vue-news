@@ -4,7 +4,11 @@
       <Navbar />
     </div>
     <div class="row">
-      <news class="col-lg-4 order-1" @getNewsList="newsToData"></news>
+      <news
+        category="details"
+        class="col-lg-4 order-1"
+        @getNewsList="newsToData"
+      ></news>
       <news-content
         class="col-lg-8 order-0"
         :title="news.title"

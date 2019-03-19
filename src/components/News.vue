@@ -35,23 +35,31 @@
 <script>
 import axios from "axios";
 //import news from "@/assets/news.json";
-const api = "//hn.algolia.com/api/v1/search_by_date?tags=story";
+const newListed = "//hn.algolia.com/api/v1/search_by_date?tags=story";
+const popular = "//hn.algolia.com/api/v1/search?tags=front_page";
+let api = popular;
 export default {
   data() {
     return {
+      currentPage: this.$route.path,
       page: 0,
-      list: [],
+      list: []
     };
   },
   name: "News",
   props: {
-    msg: String
+    category: String
   },
   methods: {
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
     },
     infiniteHandler($state) {
+      if (this.currentPage === "/") {
+        api = popular;
+      } else if (this.currentPage === "/fresh") {
+        api = newListed;
+      }
       axios
         .get(api, {
           params: {

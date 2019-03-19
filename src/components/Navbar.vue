@@ -8,8 +8,8 @@
           class="logo"
         />
       </router-link>
-      <a href="#" class="router-link-exact-active router-link-active">Popüler</a>
-      <a href="/">Güncel</a>
+      <router-link to="/">Popüler</router-link>
+      <router-link to="/fresh">Güncel</router-link>
       <router-link to="/about">Hakkında</router-link>
     </nav>
   </header>
