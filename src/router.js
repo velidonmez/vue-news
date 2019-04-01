@@ -29,7 +29,7 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
-      path: "/news/:newsId",
+      path: "/news/:newsId/:newsTitle",
       name: "news",
       props: true,
       component: () => import("./views/NewsDetails.vue")

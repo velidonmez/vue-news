@@ -1,19 +1,11 @@
 <template>
-  <div class="container-fluid news-details">
+  <div class="container news-details">
     <div class="row">
-      <Navbar />
+      <Navbar/>
     </div>
     <div class="row">
-      <news
-        category="details"
-        class="col-lg-4 order-1"
-        @getNewsList="newsToData"
-      ></news>
-      <news-content
-        class="col-lg-8 order-0"
-        :title="news.title"
-        :details="news.url"
-      ></news-content>
+      <news category="details" class="col-lg-4 order-1" @getNewsList="newsToData"></news>
+      <news-content class="col-lg-8 order-0" :title="news.title" :details="news.url"></news-content>
     </div>
   </div>
 </template>

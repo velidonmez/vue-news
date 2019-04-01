@@ -8,9 +8,12 @@
           class="news-item"
           @click="scrollToTop"
         >
-          <span class="score">{{ item.points }}</span>
+          <span class="score"><img class="img-thumbnail rounded mx-auto d-block" src="../assets/logo.png" alt /></span>
           <router-link
-            :to="{ name: 'news', params: { newsId: item.objectID } }"
+            :to="{
+              name: 'news',
+              params: { newsId: item.objectID, newsTitle: item.title }
+            }"
           >
             <span class="title">{{ item.title }}</span>
           </router-link>
@@ -113,11 +116,9 @@ export default {
   font-size: 1.1em;
   font-weight: 700;
   position: absolute;
-  top: 50%;
   left: 0;
   width: 80px;
   text-align: center;
-  margin-top: -10px;
 }
 .news-item .meta,
 .news-item .host {

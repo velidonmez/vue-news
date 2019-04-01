@@ -1,24 +1,26 @@
 <template>
-  <div class="container-fluid new">
-    <Navbar />
+  <div class="container new">
+    <div class="row">
+      <Navbar/>
+    </div>
     <div class="row">
       <p class="w-100"></p>
     </div>
-    <div class="row">
-      <News category="fresh" class="col-lg-8 mx-auto"></News>
+    <div class="container">
+      <NewsCards category="fresh"></NewsCards>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import News from "@/components/News.vue";
+import NewsCards from "@/components/NewsCards.vue";
 import Navbar from "@/components/Navbar.vue";
 
 export default {
   name: "fresh",
   components: {
-    News,
+    NewsCards,
     Navbar
   }
 };
