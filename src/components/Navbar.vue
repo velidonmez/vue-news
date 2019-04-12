@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row px-3">
           <div class="col-lg-4 date-sec">
-            <div id="Date" class="mt-1">Tue, 2 April 2019</div>
+            <div id="Date" class="mt-1"></div>
           </div>
           <div class="col-lg-3 ml-auto">
             <div class="social-icon">
@@ -23,8 +23,7 @@
           <div class="col-md-6 col-lg-4 pt-2 m-auto">
             <router-link to="/">
               <h1 class="text-center">
-                News
-                <small>Get the latest News</small>
+                HaberÜsküdar
               </h1>
             </router-link>
           </div>
@@ -52,7 +51,8 @@
             <li :class="{ active: this.$route.path === '/fresh' }" class="nav-item">
               <router-link class="nav-link" to="/fresh">Güncel</router-link>
             </li>
-            <li :class="{ active: this.$route.path === '/about' }" class="nav-item">
+            <li
+             :class="{ active: this.$route.path === '/about' }" class="nav-item">
               <router-link class="nav-link" to="/about">Hakkında</router-link>
             </li>
             <li class="nav-item">
@@ -69,20 +69,6 @@
       </nav>
     </section>
   </header>
-  <!-- <header class="header">
-    <nav class="inner col-lg-8 mx-auto">
-      <router-link to="/">
-        <img
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4JpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3RDBBRDcwNDU4NEMxMUU2ODdFNjg5OTYwMjlGNjQ0QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1NTU3NUVGQUEyRDIxMUU2ODlEMUJBMUE3RTYxMkU1OSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1NTU3NUVGOUEyRDIxMUU2ODlEMUJBMUE3RTYxMkU1OSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjE2NTUwMDE5LTVjNjQtNGRiNy1iNjhjLTQ1ZWIxYzkxM2FiYiIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmJlZDc4OTczLWViM2ItMTE3OS04YzQyLWNlMTYwYmQ0NTQ1NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv38lU4AAAMkSURBVHja7FnbSxRRGP+N666upqUECWK+mUqbmxbRQ4QmFEFQmtZDEPQcvfQ/9BL1WO920SyCjJCIyC5iXsmVMjVB8pbVqnhBc2dm+84azHzjbszsupPBfA8L8ztnzvzmu/zON2elcDiMrWQp2GK25QilsqvQKmB/BCW408SvkZC8iptVCE7CJdlHhjI4LQNXXyE7bwMhGguOYWba4LXkmgp43VCVGCFzeQRgM6FUj1NlDiGH0L9T6r/YWqRE9aapa7RiXuOIC/CY2gVMEyqrRnqWdqmE8PE55FAUTsQmKxdFRxk4N47RHkFrcwjRFnf4Ig5dYOCNSgy0CT8Z7Bdw4hJqrzOw6TIGe+DdrBwiN7y5bQQP1BmDiEhQKDTlZxm4PIvuJng2MalprZFOTAYYuO8UsjOMnGSgoBSFFQwMtOBH0Ey8rHhoRUHnPQbmFKDoCEJ8Jl2WnUYKz4T3Dear2fREclJvc6Rh0llFPfMQxStdQnktm/NtCEPvTMbLCiF656kxfH7JQN9J5GRpnMg9hT4U+Nmc7kYshyAlQxjViPP1Rl3VnkpNciiB/DWQdGsqa+hphDtJSk1uH2jFwjSvtXotXhku7K9hoyNvMT6cNEI0d34RfY8ZWHocuTlQ1uPlR/5eNtrRINyWxL2MSrfzLkO27URJtWBDnEQ665Jl6ScCT82nc1yEyPmjXRj/wKN2LhKvVPjPMLz/CYJzJuUnXkL0/quq0Uklx7A9E7vLkFfM5edOHM2E9TvISX0PEVrREO8OFFcJCdDb9CeMtFuNV1yEhCB9xeALBlZdQXkdQ7ruY1mGZAOh9Qrv4IJEeZ3v0+1oJD8PLFV7YoQoENQMzU/FnDDchokvNhISgrSEvkcxJ5CgKzb31H8EKVpPuvgdgWdxpHNihIQg9WIiEGWovwWz81blx3pPvVGQZBWt13DwvHHo9a1ETgcSuJW66Y5mtDdHWdIT/zFTYicd7ti64Hy5OoQcQlGrTFVEJ6/a+HzxODkWIUkcJ3gz7T70TM+EpLUpku6/jjAWZqDI+uGkGz2dPpuydyHFtZGQk9T/BaHfAgwAytLfbeiDo+IAAAAASUVORK5CYII="
-          alt="logo"
-          class="logo"
-        >
-      </router-link>
-      <router-link to="/">Popüler</router-link>
-      <router-link to="/fresh">Güncel</router-link>
-      <router-link to="/about">Hakkında</router-link>
-    </nav>
-  </header>-->
 </template>
 
 <script>
@@ -118,25 +104,20 @@ header {
   width: 100%;
 }
 .small-top {
-  border-bottom: 1px solid #2b2b2b;
   float: left;
   width: 100%;
-  background: #000;
+  background: #004c4c;
 }
 .small-top .social-icon {
   float: right;
 }
 .small-top .social-icon a {
-  border-left: 1px solid #2b2b2b;
-  color: #ca1b1b;
+  color: #66b2b2;
   float: left;
   padding: 6px 13px;
 }
-.small-top .social-icon a:last-child {
-  border-right: 1px solid #2b2b2b;
-}
 .small-top .social-icon a:hover {
-  color: #fd3a13;
+  color: #b2d8d8;
   text-decoration: none;
 }
 .small-top .date-sec {
@@ -148,7 +129,7 @@ header {
 }
 
 .top-head {
-  background-color: #141517;
+  background-color: #006666;
   float: left;
   height: 85px;
   width: 100%;
@@ -195,5 +176,9 @@ header {
 }
 .navbar-brand {
   display: none;
+}
+.card-img-overlay {
+  padding-left: 1em!important;
+  padding-top: 0.5em!important;
 }
 </style>

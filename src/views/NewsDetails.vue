@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       <news category="details" class="col-lg-4 order-1" @getNewsList="newsToData"></news>
-      <news-content class="col-lg-8 order-0" :title="news.title" :details="news.url"></news-content>
+      <news-content class="col-lg-8 order-0" image="https://via.placeholder.com/750x422" :title="news.title" details="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae inventore dolorem porro sunt perferendis et dicta dolores alias nihil est assumenda voluptates, praesentium fugit earum odio laudantium sapiente distinctio.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae inventore dolorem porro sunt perferendis et dicta dolores alias nihil est assumenda voluptates, praesentium fugit earum odio laudantium sapiente distinctio."></news-content>
     </div>
   </div>
 </template>

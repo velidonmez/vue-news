@@ -14,9 +14,9 @@
                 params: { newsId: item.objectID, newsTitle: item.title }
               }"
             >
-              <img class="img-fluid" src="../assets/logo.png" alt />
+              <img class="img-thumbnail" src="https://via.placeholder.com/250" alt />
               <div class="card-img-overlay">
-                <span class="badge badge-pill badge-danger">{{
+                <span class="badge badge-pill badge-success">{{
                   item._tags[0]
                 }}</span>
               </div>

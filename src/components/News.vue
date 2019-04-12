@@ -8,7 +8,7 @@
           class="news-item"
           @click="scrollToTop"
         >
-          <span class="score"><img class="img-thumbnail rounded mx-auto d-block" src="../assets/logo.png" alt /></span>
+          <span class="score"><img class="img-thumbnail rounded mx-auto d-block" src="https://via.placeholder.com/150" alt /></span>
           <router-link
             :to="{
               name: 'news',
