@@ -2,11 +2,7 @@
   <section class="news">
     <div class="container-fluid">
       <div class="row px-3">
-        <div
-          v-for="(item, $index) in list"
-          :key="$index"
-          class="col-md-4 col-sm-6 col-lg-3"
-        >
+        <div v-for="(item, $index) in list" :key="$index" class="col-md-4 col-sm-6 col-lg-3">
           <div class="card mb-4">
             <router-link
               :to="{
@@ -14,11 +10,9 @@
                 params: { newsId: item.objectID, newsTitle: item.title }
               }"
             >
-              <img class="img-thumbnail" src="https://via.placeholder.com/250" alt />
+              <img class="img-thumbnail" src="https://via.placeholder.com/250" alt>
               <div class="card-img-overlay">
-                <span class="badge badge-pill badge-success">{{
-                  item._tags[0]
-                }}</span>
+                <span class="badge badge-pill badge-success">{{ item._tags[0] }}</span>
               </div>
               <div class="card-body p-2">
                 <div class="news-title">
@@ -46,9 +40,10 @@
 <script>
 import axios from "axios";
 //import news from "@/assets/news.json";
-const newListed = "//hn.algolia.com/api/v1/search_by_date?tags=story";
+/* const newListed = "//hn.algolia.com/api/v1/search_by_date?tags=story";
 const popular = "//hn.algolia.com/api/v1/search?tags=front_page";
-let api = popular;
+let api = popular; */
+
 export default {
   data() {
     return {
@@ -59,6 +54,10 @@ export default {
   },
   name: "News",
   props: {
+    newsSource: {
+      type: String,
+      required: true
+    },
     category: String
   },
   methods: {
@@ -66,13 +65,8 @@ export default {
       document.documentElement.scrollTop = 0;
     },
     infiniteHandler($state) {
-      if (this.currentPage === "/") {
-        api = popular;
-      } else if (this.currentPage === "/fresh") {
-        api = newListed;
-      }
       axios
-        .get(api, {
+        .get(this.newsSource, {
           params: {
             page: this.page
           }
@@ -92,8 +86,13 @@ export default {
     this.$nextTick(function() {
       // Code that will run only after the
       // entire view has been rendered
+      /*       if (this.currentPage === "/") {
+        api = popular;
+      } else if (this.currentPage === "/fresh") {
+        api = newListed;
+      } */
       this.$emit("getNewsList", this.list);
-      console.log(this.list.length);
+      console.log(this.list);
     });
   }
 };

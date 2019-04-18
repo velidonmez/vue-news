@@ -7,7 +7,7 @@
       <p class="w-100"></p>
     </div>
     <div class="container">
-      <NewsCards category="frontpage"></NewsCards>
+      <NewsCards category="frontpage" newsSource="//hn.algolia.com/api/v1/search?tags=front_page"></NewsCards>
     </div>
   </div>
 </template>
