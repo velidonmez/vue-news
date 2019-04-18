@@ -4,7 +4,7 @@
       <Navbar/>
     </div>
     <div class="row">
-      <news category="details" class="col-lg-4 order-1" @getNewsList="newsToData"></news>
+      <news :newsSource="newsSource" category="details" class="col-lg-4 order-1" @getNewsList="newsToData"></news>
       <news-content
         class="col-lg-8 order-0"
         image="https://via.placeholder.com/750x422"
@@ -37,6 +37,12 @@ export default {
     Navbar,
     News,
     VFooter
+  },
+  props: {
+    newsSource: {
+      type: String,
+      required: true
+    }
   },
   methods: {
     newsToData: function(list) {

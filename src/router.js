@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-import FrontPage from "./views/FrontPage.vue";
-import Fresh from "./views/Fresh.vue";
+import PopularCategory from "./views/category/PopularCategory.vue";
+import FreshCategory from "./views/category/FreshCategory.vue";
 
 Vue.use(Router);
 
@@ -12,27 +12,24 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: FrontPage
+      component: PopularCategory
     },
     {
       path: "/fresh",
-      name: "fresh",
-      component: Fresh
+      name: "freshpage",
+      component: FreshCategory
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
-    },
-    {
-      path: "/news/:newsId/:newsTitle",
-      name: "news",
+      path: "/popular/:newsId/:newsTitle",
+      name: "popular",
       props: true,
-      component: () => import("./views/NewsDetails.vue")
+      component: () => import("./views/details/PopularNews.vue")
+    },
+    {
+      path: "/fresh/:newsId/:newsTitle",
+      name: "fresh",
+      props: true,
+      component: () => import("./views/details/FreshNews.vue")
     },
     {
       path: "*",

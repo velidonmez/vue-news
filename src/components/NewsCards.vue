@@ -6,11 +6,11 @@
           <div class="card mb-4">
             <router-link
               :to="{
-                name: 'news',
+                name: category,
                 params: { newsId: item.objectID, newsTitle: item.title }
               }"
             >
-              <img class="img-thumbnail" src="https://via.placeholder.com/250" alt>
+              <img class="img-thumbnail" src="https://via.placeholder.com/250">
               <div class="card-img-overlay">
                 <span class="badge badge-pill badge-success">{{ item._tags[0] }}</span>
               </div>
@@ -52,7 +52,7 @@ export default {
       list: []
     };
   },
-  name: "News",
+  name: "NewsCards",
   props: {
     newsSource: {
       type: String,
@@ -75,25 +75,13 @@ export default {
           if (data.hits.length) {
             this.page += 1;
             this.list.push(...data.hits);
+            console.log(this.list);
             $state.loaded();
           } else {
             $state.complete();
           }
         });
     }
-  },
-  updated: function() {
-    this.$nextTick(function() {
-      // Code that will run only after the
-      // entire view has been rendered
-      /*       if (this.currentPage === "/") {
-        api = popular;
-      } else if (this.currentPage === "/fresh") {
-        api = newListed;
-      } */
-      this.$emit("getNewsList", this.list);
-      console.log(this.list);
-    });
   }
 };
 </script>

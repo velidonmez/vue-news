@@ -22,9 +22,7 @@
         <div class="row px-3">
           <div class="col-md-6 col-lg-4 pt-2 m-auto">
             <router-link to="/">
-              <h1 class="text-center">
-                HaberÜsküdar
-              </h1>
+              <img src="../assets/img/haberuskudarlogo.png" alt="logo" class="img-fluid nav-logo">
             </router-link>
           </div>
         </div>
@@ -99,6 +97,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.nav-logo {
+  
+}
 header {
   float: left;
   width: 100%;
@@ -129,7 +130,7 @@ header {
 }
 
 .top-head {
-  background-color: #006666;
+  background-color: #fff;
   float: left;
   height: 85px;
   width: 100%;

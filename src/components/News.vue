@@ -11,7 +11,7 @@
           <span class="score"><img class="img-thumbnail rounded mx-auto d-block" src="https://via.placeholder.com/150" alt /></span>
           <router-link
             :to="{
-              name: 'news',
+              name: newsSource,
               params: { newsId: item.objectID, newsTitle: item.title }
             }"
           >
@@ -51,6 +51,10 @@ export default {
   },
   name: "News",
   props: {
+    newsSource: {
+      type: String,
+      required: true
+    },
     category: String
   },
   methods: {
