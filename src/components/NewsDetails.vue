@@ -4,10 +4,15 @@
       <Navbar/>
     </div>
     <div class="row">
-      <news :newsSource="newsSource" :category="category" class="col-lg-4 order-1" @getNewsList="newsToData"></news>
+      <news
+        :newsSource="newsSource"
+        :category="category"
+        class="col-lg-4 order-1"
+        @getNewsList="newsToData"
+      ></news>
       <news-content
         class="col-lg-8 order-0"
-        image="https://via.placeholder.com/750x422"
+        :image="news.image === null ? 'https://via.placeholder.com/750x422' : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
         :title="news.title"
         details="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae inventore dolorem porro sunt perferendis et dicta dolores alias nihil est assumenda voluptates, praesentium fugit earum odio laudantium sapiente distinctio.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae inventore dolorem porro sunt perferendis et dicta dolores alias nihil est assumenda voluptates, praesentium fugit earum odio laudantium sapiente distinctio."
       ></news-content>
@@ -15,7 +20,6 @@
     <v-footer class="fixed-bottom"/>
   </div>
 </template>
-
 <script>
 import NewsContent from "@/components/NewsContent.vue";
 import News from "@/components/News.vue";
@@ -27,7 +31,8 @@ export default {
       list: [],
       news: {
         title: "Yükleniyor...",
-        details: "Yükleniyor..."
+        details: "Yükleniyor...",
+        image: null
       }
     };
   },
@@ -59,11 +64,14 @@ export default {
     },
     fillNewsDetails: function() {
       const id = this.$route.params.newsId;
-      return (
-        this.list.find(function(el) {
-          return el.objectID === id;
-        }) || this.$router.push("/")
-      );
+      try {
+        return this.list.find(function(el) {
+          return el.id === id;
+        });
+      } catch (error) {
+        throw new Error(error);
+        this.$router.push("/");
+      }
     }
   },
   watch: {

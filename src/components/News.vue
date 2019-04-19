@@ -6,32 +6,31 @@
           <span class="score">
             <img
               class="img-thumbnail rounded mx-auto d-block"
-              src="https://via.placeholder.com/150"
-              alt
-            />
+              :src="item.image === null || item.image === undefined ? 'https://via.placeholder.com/750x422' : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
+            >
           </span>
           <router-link
             :to="{
               name: category,
-              params: { newsId: item.objectID, newsTitle: item.title }
+              params: { newsId: item.id, newsTitle: item.slug }
             }"
           >
             <span class="title">{{ item.title }}</span>
           </router-link>
-          <br />
+          <p class="w-100"></p>
           <span class="meta">
             <span class="by">
               by
-              {{ item.author }} |
+              {{ item.student_id }} |
             </span>
             <span class="time">{{ item.created_at.split("T")[0] }} |</span>
           </span>
-          <span class="label">{{ item._tags[0] }}</span>
+          <span class="label">{{ item.category_id }}</span>
         </li>
-        <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
+        <!-- <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
           <div slot="no-more">Liste sonu.</div>
           <div slot="no-results">Sonuç bulunamadı.</div>
-        </infinite-loading>
+        </infinite-loading>-->
       </ul>
     </div>
   </div>
@@ -75,17 +74,12 @@ export default {
         .get(this.newsSource, {
           params: {
             page: this.page
-          },
-          mode: "no-cors",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json"
           }
         })
-        .then(({ data }) => {
-          if (data.hits.length) {
+        .then(({ res }) => {
+          if (res.hits.length) {
             this.page += 1;
-            this.list.push(...data.hits);
+            this.list.push(...res.hits);
             $state.loaded();
           } else {
             $state.complete();
@@ -94,11 +88,21 @@ export default {
     }
   },
   updated: function() {
-    this.$nextTick(function() {
+    /* this.$nextTick(function() {
       // Code that will run only after the
       // entire view has been rendered
       this.$emit("getNewsList", this.list);
       console.log(this.list.length);
+    }); */
+  },
+  mounted() {
+    axios.get(this.newsSource).then(({ data }) => {
+      if (data.data.length) {
+        //this.page += 1;
+        this.list.push(...data.data);
+        this.$emit("getNewsList", this.list);
+        console.log(this.list);
+      }
     });
   }
 };

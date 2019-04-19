@@ -7,12 +7,16 @@
             <router-link
               :to="{
                 name: category,
-                params: { newsId: item.objectID, newsTitle: item.title }
+                params: { newsId: item.id.toString(), newsTitle: item.slug }
               }"
             >
-              <img class="img-thumbnail" src="https://via.placeholder.com/250">
+              <!-- todo: find a suitable image for null values -->
+              <img
+                class="img-thumbnail"
+                :src="item.image === null ? 'https://via.placeholder.com/250' : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
+              >
               <div class="card-img-overlay">
-                <span class="badge badge-pill badge-success">{{ item._tags[0] }}</span>
+                <span class="badge badge-pill badge-success">{{ item.category_id }}</span>
               </div>
               <div class="card-body p-2">
                 <div class="news-title">
@@ -30,10 +34,10 @@
           </div>
         </div>
       </div>
-      <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
+      <!-- <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
         <div slot="no-more">Liste sonu.</div>
         <div slot="no-results">Sonuç bulunamadı.</div>
-      </infinite-loading>
+      </infinite-loading>-->
     </div>
   </section>
 </template>
@@ -48,7 +52,7 @@ export default {
   data() {
     return {
       currentPage: this.$route.path,
-      page: 0,
+      page: 1,
       list: []
     };
   },
@@ -64,6 +68,9 @@ export default {
     }
   },
   methods: {
+    imgChecker: function() {
+      return;
+    },
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
     },
@@ -72,24 +79,29 @@ export default {
         .get(this.newsSource, {
           params: {
             page: this.page
-          },
-          mode: "no-cors",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json"
           }
         })
         .then(({ data }) => {
-          if (data.hits.length) {
-            this.page += 1;
-            this.list.push(...data.hits);
+          if (data.data.length) {
+            //this.page += 1;
+            this.list.push(...data.data);
             console.log(this.list);
             $state.loaded();
+            $state.complete();
           } else {
             $state.complete();
           }
         });
     }
+  },
+  mounted() {
+    axios.get(this.newsSource).then(({ data }) => {
+      if (data.data.length) {
+        //this.page += 1;
+        this.list.push(...data.data);
+        console.log(this.list);
+      }
+    });
   }
 };
 </script>
