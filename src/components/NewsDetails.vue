@@ -4,7 +4,7 @@
       <Navbar/>
     </div>
     <div class="row">
-      <news :newsSource="newsSource" category="details" class="col-lg-4 order-1" @getNewsList="newsToData"></news>
+      <news :newsSource="newsSource" :category="category" class="col-lg-4 order-1" @getNewsList="newsToData"></news>
       <news-content
         class="col-lg-8 order-0"
         image="https://via.placeholder.com/750x422"
@@ -40,6 +40,10 @@ export default {
   },
   props: {
     newsSource: {
+      type: String,
+      required: true
+    },
+    category: {
       type: String,
       required: true
     }

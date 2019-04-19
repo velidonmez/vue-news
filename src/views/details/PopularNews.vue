@@ -1,5 +1,5 @@
 <template>
-  <news-details newsSource="popular"/>
+  <news-details category="popular" newsSource="//hn.algolia.com/api/v1/search?tags=front_page"/>
 </template>
 
 <script>

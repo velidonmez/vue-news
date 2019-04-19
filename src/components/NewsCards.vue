@@ -58,7 +58,10 @@ export default {
       type: String,
       required: true
     },
-    category: String
+    category: {
+      type: String,
+      required: true
+    }
   },
   methods: {
     scrollToTop: function() {
