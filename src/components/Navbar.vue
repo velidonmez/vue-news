@@ -44,23 +44,28 @@
         <div class="navbar-collapse collapse" id="navbarSupportedContent" style>
           <ul class="nav navbar-nav m-auto">
             <li :class="{ active: this.$route.path === '/' }" class="nav-item">
-              <router-link class="nav-link" to="/">Popüler</router-link>
+              <router-link class="nav-link" to="/">Ana Sayfa</router-link>
             </li>
-            <li :class="{ active: this.$route.path === '/fresh' }" class="nav-item">
-              <router-link class="nav-link" to="/fresh">Güncel</router-link>
+            <li :class="{ active: this.$route.path === '/spor' }" class="nav-item">
+              <router-link class="nav-link" to="/spor">Spor</router-link>
             </li>
-            <li
-             :class="{ active: this.$route.path === '/about' }" class="nav-item">
-              <router-link class="nav-link" to="/about">Hakkında</router-link>
+            <li :class="{ active: this.$route.path === '/medya-iletisim' }" class="nav-item">
+              <router-link class="nav-link" to="/medya-iletisim">Medya-İletİşİm</router-link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sports</a>
+            <li :class="{ active: this.$route.path === '/bilim-teknoloji' }" class="nav-item">
+              <router-link class="nav-link" to="/bilim-teknoloji">BİLİM-TEKNOLOJİ</router-link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tech</a>
+            <li :class="{ active: this.$route.path === '/kultur-sanat' }" class="nav-item">
+              <router-link class="nav-link" to="/kultur-sanat">Kültür-Sanat</router-link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Health</a>
+            <li :class="{ active: this.$route.path === '/arastirma-inceleme' }" class="nav-item">
+              <router-link class="nav-link" to="/arastirma-inceleme">Araştırma-İnceleme</router-link>
+            </li>
+            <li :class="{ active: this.$route.path === '/saglik' }" class="nav-item">
+              <router-link class="nav-link" to="/saglik">Sağlık</router-link>
+            </li>
+            <li :class="{ active: this.$route.path === '/universite' }" class="nav-item">
+              <router-link class="nav-link" to="/universite">Üniversİte</router-link>
             </li>
           </ul>
         </div>
@@ -70,13 +75,25 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Navbar",
   data() {
     return {
-      page: null
+      page: null,
+      categories: []
     };
   },
+  //Todo: get category info from api
+  /*   mounted() {
+    axios
+      .get("https://demo.haberuskudar.com/api/content-categories")
+      .then(({response}) => {
+        this.categories.push(...response);
+        console.log(this.categories);
+      });
+  }, */
   updated() {
     this.$nextTick(function() {
       // Code that will run only after the
@@ -176,7 +193,7 @@ header {
   display: none;
 }
 .card-img-overlay {
-  padding-left: 1em!important;
-  padding-top: 0.5em!important;
+  padding-left: 1em !important;
+  padding-top: 0.5em !important;
 }
 </style>

@@ -2,13 +2,14 @@
   <div class="news d-flex flex-column">
     <div class="wrapper">
       <ul class="news-list">
-        <li
-          v-for="(item, $index) in list"
-          :key="$index"
-          class="news-item"
-          @click="scrollToTop"
-        >
-          <span class="score"><img class="img-thumbnail rounded mx-auto d-block" src="https://via.placeholder.com/150" alt /></span>
+        <li v-for="(item, $index) in list" :key="$index" class="news-item" @click="scrollToTop">
+          <span class="score">
+            <img
+              class="img-thumbnail rounded mx-auto d-block"
+              src="https://via.placeholder.com/150"
+              alt
+            />
+          </span>
           <router-link
             :to="{
               name: category,
@@ -55,7 +56,7 @@ export default {
       type: String,
       required: true
     },
-    category:{
+    category: {
       type: String,
       required: true
     }
@@ -74,6 +75,11 @@ export default {
         .get(this.newsSource, {
           params: {
             page: this.page
+          },
+          mode: "no-cors",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json"
           }
         })
         .then(({ data }) => {

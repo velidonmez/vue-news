@@ -1,7 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import PopularCategory from "./views/category/PopularCategory.vue";
+import MainPage from "./views/category/MainPage.vue";
 import FreshCategory from "./views/category/FreshCategory.vue";
+import SporCategory from "./views/category/SporCategory.vue";
 
 Vue.use(Router);
 
@@ -9,10 +10,29 @@ export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
+    //anasayfa
     {
       path: "/",
-      name: "home",
-      component: PopularCategory
+      name: "anasayfa",
+      component: MainPage
+    },
+    {
+      path: "/haber/:newsId/:newsTitle",
+      name: "haber",
+      props: true,
+      component: () => import("./views/details/MainPageNews.vue")
+    },
+    //spor
+    {
+      path: "/spor",
+      name: "sporpage",
+      component: SporCategory
+    },
+    {
+      path: "/spor/:newsId/:newsTitle",
+      name: "spor",
+      props: true,
+      component: () => import("./views/details/SporNews.vue")
     },
     {
       path: "/fresh",
@@ -20,20 +40,15 @@ export default new Router({
       component: FreshCategory
     },
     {
-      path: "/popular/:newsId/:newsTitle",
-      name: "popular",
-      props: true,
-      component: () => import("./views/details/PopularNews.vue")
-    },
-    {
       path: "/fresh/:newsId/:newsTitle",
       name: "fresh",
       props: true,
       component: () => import("./views/details/FreshNews.vue")
     },
+    //redirect to main page
     {
       path: "*",
-      redirect: { name: "home" }
+      redirect: { name: "anasayfa" }
     }
   ]
 });

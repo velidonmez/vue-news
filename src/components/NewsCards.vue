@@ -72,6 +72,11 @@ export default {
         .get(this.newsSource, {
           params: {
             page: this.page
+          },
+          mode: "no-cors",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json"
           }
         })
         .then(({ data }) => {
