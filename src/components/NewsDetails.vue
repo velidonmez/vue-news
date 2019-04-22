@@ -4,27 +4,21 @@
       <Navbar/>
     </div>
     <div class="row">
-      <news
-        :newsSource="newsSource"
-        :category="category"
-        class="col-lg-4 order-1"
-        @getNewsList="newsToData"
-      ></news>
+      <news :newsSource="newsSource" :category="category" class="col-lg-4 order-1"></news>
       <news-content
         class="col-lg-8 order-0"
         :image="news.image === null ? 'https://via.placeholder.com/750x422' : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
         :title="news.title"
-        details="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae inventore dolorem porro sunt perferendis et dicta dolores alias nihil est assumenda voluptates, praesentium fugit earum odio laudantium sapiente distinctio.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae inventore dolorem porro sunt perferendis et dicta dolores alias nihil est assumenda voluptates, praesentium fugit earum odio laudantium sapiente distinctio."
+        :details="news.post"
       ></news-content>
     </div>
-    <v-footer class="fixed-bottom"/>
   </div>
 </template>
 <script>
+import axios from "axios";
 import NewsContent from "@/components/NewsContent.vue";
 import News from "@/components/News.vue";
 import Navbar from "@/components/Navbar.vue";
-import VFooter from "@/components/VFooter.vue";
 export default {
   data() {
     return {
@@ -40,8 +34,7 @@ export default {
   components: {
     NewsContent,
     Navbar,
-    News,
-    VFooter
+    News
   },
   props: {
     newsSource: {
@@ -54,19 +47,11 @@ export default {
     }
   },
   methods: {
-    newsToData: function(list) {
-      try {
-        this.list = list;
-        this.news = this.fillNewsDetails();
-      } catch (error) {
-        throw new Error(error);
-      }
-    },
     fillNewsDetails: function() {
-      const id = this.$route.params.newsId;
+      const id = this.$route.params.newsTitle;
       try {
         return this.list.find(function(el) {
-          return el.id === id;
+          return el.slug == id;
         });
       } catch (error) {
         throw new Error(error);
@@ -79,6 +64,25 @@ export default {
       // react to route changes...
       this.news = this.fillNewsDetails();
     }
+  },
+  created() {
+    const id = this.$route.params.newsTitle;
+    axios.get(this.newsSource).then(({ data }) => {
+      if (data.data.length) {
+        this.list.push(...data.data);
+        this.news = this.fillNewsDetails()
+        /* try {
+          this.news = this.list.find(function(el) {
+            return el.slug == id;
+          });
+        } catch (error) {
+          throw new Error(error);
+          this.$router.push("/");
+        } */
+        console.log("news details list: " + this.news);
+        console.log(this.$route.params.newsTitle);
+      }
+    });
   }
 };
 </script>

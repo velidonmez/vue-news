@@ -63,13 +63,8 @@ export default {
   methods: {
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
-    },
+    }/* ,
     infiniteHandler($state) {
-      /* if (this.currentPage === "/") {
-        api = popular;
-      } else if (this.currentPage === "/fresh") {
-        api = newListed;
-      } */
       axios
         .get(this.newsSource, {
           params: {
@@ -85,7 +80,7 @@ export default {
             $state.complete();
           }
         });
-    }
+    } */
   },
   updated: function() {
     /* this.$nextTick(function() {
@@ -95,13 +90,11 @@ export default {
       console.log(this.list.length);
     }); */
   },
-  mounted() {
+  created() {
     axios.get(this.newsSource).then(({ data }) => {
       if (data.data.length) {
         //this.page += 1;
         this.list.push(...data.data);
-        this.$emit("getNewsList", this.list);
-        console.log(this.list);
       }
     });
   }

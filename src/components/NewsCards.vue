@@ -73,7 +73,7 @@ export default {
     },
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
-    },
+    }/* ,
     infiniteHandler($state) {
       axios
         .get(this.newsSource, {
@@ -92,9 +92,9 @@ export default {
             $state.complete();
           }
         });
-    }
+    } */
   },
-  mounted() {
+  created() {
     axios.get(this.newsSource).then(({ data }) => {
       if (data.data.length) {
         //this.page += 1;

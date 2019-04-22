@@ -2,7 +2,7 @@
   <article class="newsContent mt-3 p-4">
     <img class="img-fluid" :src="image" alt>
     <h1>{{ title }}</h1>
-    <p>{{ details }}</p>
+    <div v-html="details"></div>
   </article>
 </template>
 

@@ -17,7 +17,7 @@ export default new Router({
       component: MainPage
     },
     {
-      path: "/haber/:newsId/:newsTitle",
+      path: "/haber/:newsTitle",
       name: "haber",
       props: true,
       component: () => import("./views/details/MainPageNews.vue")
