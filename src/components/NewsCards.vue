@@ -11,10 +11,12 @@
               }"
             >
               <!-- todo: find a suitable image for null values -->
-              <img
-                class="img-thumbnail"
-                :src="item.image === null ? 'https://via.placeholder.com/250' : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
-              >
+              <div class="img-container">
+                <img
+                  class="img-thumbnail"
+                  :src="item.image === null ? require('../assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
+                >
+              </div>
               <div class="card-img-overlay">
                 <span class="badge badge-pill badge-success">{{ item.category_id }}</span>
               </div>
@@ -84,16 +86,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.img-container {
+  height: 8em;
+  overflow: hidden;
+}
 .card {
   float: left;
   width: 100%;
-}
-.navbar {
-  border: medium none;
-  float: left;
-  margin-bottom: 0px;
-  width: 100%;
-  border-radius: 0;
+  height: 16em;
+  overflow: hidden;
 }
 .title-large {
   font-size: 20px;

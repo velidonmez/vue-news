@@ -6,7 +6,7 @@
           <span class="score">
             <img
               class="img-thumbnail rounded mx-auto d-block"
-              :src="item.image === null || item.image === undefined ? 'https://via.placeholder.com/750x422' : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
+              :src="item.image === null || item.image === undefined ? require('../assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
             />
           </span>
           <router-link

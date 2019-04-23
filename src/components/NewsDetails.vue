@@ -4,13 +4,23 @@
       <Navbar/>
     </div>
     <div class="row">
-      <news :newsSource="newsSource" :category="category" class="col-lg-4 order-1"></news>
-      <news-content
-        class="col-lg-8 order-0"
-        :image="news.image === null ? 'https://via.placeholder.com/750x422' : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
-        :title="news.title"
-        :details="news.post"
-      ></news-content>
+      <div class="col-lg-4 order-1">
+        <news :newsSource="newsSource" :category="category"></news>
+      </div>
+      <div class="col-lg-8 order-0">
+        <news-content
+          :image="news.image === null ? require('../assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
+          :title="news.title"
+          :details="news.post"
+        ></news-content>
+        <!-- <news-content
+          v-for="otherNews in list.filter(item => item.id !== news.id)"
+          :key="otherNews.id"
+          :image="otherNews.image === null ? require('../assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
+          :title="otherNews.title"
+          :details="otherNews.post"
+        ></news-content> -->
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +57,23 @@ export default {
     }
   },
   methods: {
+    scroll() {
+      window.onscroll = () => {
+        let bottomOfWindow =
+          Math.max(
+            window.pageYOffset,
+            document.documentElement.scrollTop,
+            document.body.scrollTop
+          ) +
+            window.innerHeight ===
+          document.documentElement.offsetHeight;
+
+        if (bottomOfWindow) {
+          console.log("bottom");
+          //this.scrolledToBottom = true; // replace it with your code
+        }
+      };
+    },
     fillNewsDetails: function() {
       const id = this.$route.params.newsTitle;
       try {
@@ -70,11 +97,14 @@ export default {
     axios.get(this.newsSource).then(({ data }) => {
       if (data.data.length) {
         this.list.push(...data.data);
-        this.news = this.fillNewsDetails()
+        this.news = this.fillNewsDetails();
         console.log("news details list: " + this.news);
         console.log(this.$route.params.newsTitle);
       }
     });
+  },
+  mounted() {
+    this.scroll();
   }
 };
 </script>
