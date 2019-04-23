@@ -27,10 +27,10 @@
           </span>
           <span class="label">{{ item.category_id }}</span>
         </li>
-        <!-- <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
+        <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
           <div slot="no-more">Liste sonu.</div>
           <div slot="no-results">Sonuç bulunamadı.</div>
-        </infinite-loading>-->
+        </infinite-loading>
       </ul>
     </div>
   </div>
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       currentPage: this.$route.path,
-      page: 0,
+      page: 1,
       list: []
     };
   },
@@ -59,14 +59,25 @@ export default {
   methods: {
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
+    },
+    infiniteHandler($state) {
+      axios
+        .get(this.newsSource, {
+          params: {
+            page: this.page
+          }
+        })
+        .then(({ data }) => {
+          if (data.data.data.length) {
+            this.page += 1;
+            this.list.push(...data.data.data);
+            console.log(this.list);
+            $state.loaded();
+          } else {
+            $state.complete();
+          }
+        });
     }
-  },
-  created() {
-    axios.get(this.newsSource).then(({ data }) => {
-      if (data.data.length) {
-        this.list.push(...data.data);
-      }
-    });
   }
 };
 </script>
@@ -91,6 +102,11 @@ export default {
   position: relative;
   line-height: 20px;
 }
+.news-item .meta,
+.news-item .host {
+  font-size: 0.85em;
+  color: #828282;
+}
 .news-item .score {
   color: #f60;
   font-size: 1.1em;
@@ -99,10 +115,5 @@ export default {
   left: 0;
   width: 80px;
   text-align: center;
-}
-.news-item .meta,
-.news-item .host {
-  font-size: 0.85em;
-  color: #828282;
 }
 </style>

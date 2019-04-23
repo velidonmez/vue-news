@@ -18,7 +18,7 @@
                 >
               </div>
               <div class="card-img-overlay">
-                <span class="badge badge-pill badge-success">{{ item.category_id }}</span>
+                <span class="badge badge-pill badge-success cat-notif">{{ item.category.name }}</span>
               </div>
               <div class="card-body p-2">
                 <div class="news-title">
@@ -36,10 +36,10 @@
           </div>
         </div>
       </div>
-      <!-- <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
+      <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
         <div slot="no-more">Liste sonu.</div>
         <div slot="no-results">Sonuç bulunamadı.</div>
-      </infinite-loading>-->
+      </infinite-loading>
     </div>
   </section>
 </template>
@@ -65,27 +65,41 @@ export default {
     }
   },
   methods: {
-    imgChecker: function() {
-      return;
+    infiniteHandler($state) {
+      axios
+        .get(this.newsSource, {
+          params: {
+            page: this.page
+          }
+        })
+        .then(({ data }) => {
+          if (data.data.data.length) {
+            this.page += 1;
+            this.list.push(...data.data.data);
+            console.log(this.list);
+            $state.loaded();
+          } else {
+            $state.complete();
+          }
+        });
     },
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
     }
-  },
-  created() {
-    axios.get(this.newsSource).then(({ data }) => {
-      if (data.data.length) {
-        //this.page += 1;
-        this.list.push(...data.data);
-        console.log(this.list);
-      }
-    });
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.cat-notif{
+  vertical-align:middle;
+  margin-left:-15px;
+  margin-top: -20px;
+}
+.badge-warning{
+  padding:3px;
+}
 .img-container {
   height: 8em;
   overflow: hidden;

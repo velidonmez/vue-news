@@ -95,8 +95,8 @@ export default {
   created() {
     const id = this.$route.params.newsTitle;
     axios.get(this.newsSource).then(({ data }) => {
-      if (data.data.length) {
-        this.list.push(...data.data);
+      if (data.data.data.length) {
+        this.list.push(...data.data.data);
         this.news = this.fillNewsDetails();
         console.log("news details list: " + this.news);
         console.log(this.$route.params.newsTitle);
