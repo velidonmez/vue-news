@@ -46,7 +46,12 @@
             <li :class="{ active: this.$route.path === '/' }" class="nav-item">
               <router-link class="nav-link" to="/">Ana Sayfa</router-link>
             </li>
-            <li :class="{ active: this.$route.path === '/spor' }" class="nav-item">
+
+            <li v-for="cat in list" :key="cat.id" class="nav-item">
+              <router-link class="nav-link" :to="{ path: cat.slug }">{{cat.name}}</router-link>
+            </li>
+
+            <!-- <li :class="{ active: this.$route.path === '/spor' }" class="nav-item">
               <router-link class="nav-link" to="/spor">Spor</router-link>
             </li>
             <li :class="{ active: this.$route.path === '/medya-iletisim' }" class="nav-item">
@@ -66,7 +71,7 @@
             </li>
             <li :class="{ active: this.$route.path === '/universite' }" class="nav-item">
               <router-link class="nav-link" to="/universite">Üniversİte</router-link>
-            </li>
+            </li>-->
           </ul>
         </div>
       </nav>
@@ -75,12 +80,14 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Navbar",
   data() {
     return {
       page: null,
-      categories: []
+      categories: [],
+      list: []
     };
   },
   //Todo: get category info from api
@@ -98,6 +105,15 @@ export default {
       this.page = this.$route.path;
       console.log(this.$route.path);
     }
+  },
+  mounted() {
+    const api = "https://demo.haberuskudar.com/api/content-categories";
+    axios.get(api).then(data => {
+      if (data.data.data) {
+        this.list.push(...data.data.data);
+        console.log(this.list);
+      }
+    });
   }
 };
 </script>

@@ -8,6 +8,7 @@ import BilimTeknolojiCategory from "./views/category/BilimTeknolojiCategory.vue"
 import KulturSanatCategory from "./views/category/KulturSanatCategory.vue";
 import SaglikCategory from "./views/category/SaglikCategory.vue";
 import UniversiteCategory from "./views/category/UniversiteCategory.vue";
+import ArastirmaIncelemeCategory from "./views/category/ArastirmaIncelemeCategory.vue";
 
 Vue.use(Router);
 Vue.use(Meta);
@@ -78,6 +79,18 @@ export default new Router({
       name: "kultur-sanat",
       props: true,
       component: () => import("./views/details/KulturSanatNews.vue")
+    },
+    //arastirma-inceleme
+    {
+      path: "/arastirma-inceleme",
+      name: "arastirma-incelemepage",
+      component: ArastirmaIncelemeCategory
+    },
+    {
+      path: "/arastirma-inceleme/:newsTitle",
+      name: "arastirma-inceleme",
+      props: true,
+      component: () => import("./views/details/ArastirmaIncelemeNews.vue")
     },
     //saglik
     {

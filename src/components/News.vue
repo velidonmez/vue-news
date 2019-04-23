@@ -19,13 +19,13 @@
           </router-link>
           <p class="w-100"></p>
           <span class="meta">
-            <span class="by">
+            <!-- <span class="by">
               by
               {{ item.student_id }} |
-            </span>
-            <span class="time">{{ item.created_at.split("T")[0] }} |</span>
+            </span> -->
+            <span class="time">{{ item.created_at.split("T")[0] }} | </span>
           </span>
-          <span class="label">{{ item.category_id }}</span>
+          <span class="time">{{ item.category.name }}</span>
         </li>
         <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
           <div slot="no-more">Liste sonu.</div>

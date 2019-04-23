@@ -9,7 +9,7 @@
       </div>
       <div class="col-lg-8 order-0">
         <news-content
-          :image="news.image === null ? require('../assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
+          :image="news.image === null ? '' : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
           :title="news.title"
           :details="news.post"
         ></news-content>
@@ -98,8 +98,8 @@ export default {
       if (data.data.data.length) {
         this.list.push(...data.data.data);
         this.news = this.fillNewsDetails();
-        console.log("news details list: " + this.news);
-        console.log(this.$route.params.newsTitle);
+        /* console.log("news details list: " + this.news);
+        console.log(this.$route.params.newsTitle); */
       }
     });
   },
