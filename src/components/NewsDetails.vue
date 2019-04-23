@@ -71,14 +71,6 @@ export default {
       if (data.data.length) {
         this.list.push(...data.data);
         this.news = this.fillNewsDetails()
-        /* try {
-          this.news = this.list.find(function(el) {
-            return el.slug == id;
-          });
-        } catch (error) {
-          throw new Error(error);
-          this.$router.push("/");
-        } */
         console.log("news details list: " + this.news);
         console.log(this.$route.params.newsTitle);
       }

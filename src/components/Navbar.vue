@@ -75,8 +75,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "Navbar",
   data() {
@@ -86,14 +84,6 @@ export default {
     };
   },
   //Todo: get category info from api
-  /*   mounted() {
-    axios
-      .get("https://demo.haberuskudar.com/api/content-categories")
-      .then(({response}) => {
-        this.categories.push(...response);
-        console.log(this.categories);
-      });
-  }, */
   updated() {
     this.$nextTick(function() {
       // Code that will run only after the

@@ -43,11 +43,6 @@
 </template>
 <script>
 import axios from "axios";
-//import news from "@/assets/news.json";
-/* const newListed = "//hn.algolia.com/api/v1/search_by_date?tags=story";
-const popular = "//hn.algolia.com/api/v1/search?tags=front_page";
-let api = popular; */
-
 export default {
   data() {
     return {
@@ -73,26 +68,7 @@ export default {
     },
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
-    }/* ,
-    infiniteHandler($state) {
-      axios
-        .get(this.newsSource, {
-          params: {
-            page: this.page
-          }
-        })
-        .then(({ data }) => {
-          if (data.data.length) {
-            //this.page += 1;
-            this.list.push(...data.data);
-            console.log(this.list);
-            $state.loaded();
-            $state.complete();
-          } else {
-            $state.complete();
-          }
-        });
-    } */
+    }
   },
   created() {
     axios.get(this.newsSource).then(({ data }) => {

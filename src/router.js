@@ -1,14 +1,16 @@
 import Vue from "vue";
 import Router from "vue-router";
+import Meta from "vue-meta";
 import MainPage from "./views/category/MainPage.vue";
-import FreshCategory from "./views/category/FreshCategory.vue";
 import SporCategory from "./views/category/SporCategory.vue";
 import MedyaIletisimCategory from "./views/category/MedyaIletisimCategory.vue";
 import BilimTeknolojiCategory from "./views/category/BilimTeknolojiCategory.vue";
 import KulturSanatCategory from "./views/category/KulturSanatCategory.vue";
 import SaglikCategory from "./views/category/SaglikCategory.vue";
 import UniversiteCategory from "./views/category/UniversiteCategory.vue";
+
 Vue.use(Router);
+Vue.use(Meta);
 
 export default new Router({
   mode: "history",
@@ -100,17 +102,6 @@ export default new Router({
       name: "universite",
       props: true,
       component: () => import("./views/details/UniversiteNews.vue")
-    },
-    {
-      path: "/fresh",
-      name: "freshpage",
-      component: FreshCategory
-    },
-    {
-      path: "/fresh/:newsId/:newsTitle",
-      name: "fresh",
-      props: true,
-      component: () => import("./views/details/FreshNews.vue")
     },
     //redirect to main page
     {

@@ -7,7 +7,7 @@
             <img
               class="img-thumbnail rounded mx-auto d-block"
               :src="item.image === null || item.image === undefined ? 'https://via.placeholder.com/750x422' : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
-            >
+            />
           </span>
           <router-link
             :to="{
@@ -37,10 +37,6 @@
 </template>
 <script>
 import axios from "axios";
-//import news from "@/assets/news.json";
-/* const newListed = "//hn.algolia.com/api/v1/search_by_date?tags=story";
-const popular = "//hn.algolia.com/api/v1/search?tags=front_page";
-let api = popular; */
 export default {
   data() {
     return {
@@ -63,37 +59,11 @@ export default {
   methods: {
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
-    }/* ,
-    infiniteHandler($state) {
-      axios
-        .get(this.newsSource, {
-          params: {
-            page: this.page
-          }
-        })
-        .then(({ res }) => {
-          if (res.hits.length) {
-            this.page += 1;
-            this.list.push(...res.hits);
-            $state.loaded();
-          } else {
-            $state.complete();
-          }
-        });
-    } */
-  },
-  updated: function() {
-    /* this.$nextTick(function() {
-      // Code that will run only after the
-      // entire view has been rendered
-      this.$emit("getNewsList", this.list);
-      console.log(this.list.length);
-    }); */
+    }
   },
   created() {
     axios.get(this.newsSource).then(({ data }) => {
       if (data.data.length) {
-        //this.page += 1;
         this.list.push(...data.data);
       }
     });
