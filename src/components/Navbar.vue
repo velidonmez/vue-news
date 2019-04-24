@@ -101,8 +101,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.nav-logo {
-  height: 90px;
+.navbar {
+  top: 25px;
 }
 header {
   float: left;
