@@ -35,84 +35,84 @@ export default new Router({
     //spor
     {
       path: "/spor",
-      name: "sporpage",
+      name: "spor",
       component: SporCategory
     },
     {
       path: "/spor/:newsId/:newsTitle",
-      name: "spor",
+      name: "spor-details",
       props: true,
       component: () => import("./views/details/SporNews.vue")
     },
     //medya-iletisim
     {
       path: "/medya-iletisim",
-      name: "medya-iletisimpage",
+      name: "medya-iletisim",
       component: MedyaIletisimCategory
     },
     {
       path: "/medya-iletisim/:newsTitle",
-      name: "medya-iletisim",
+      name: "medya-iletisim-details",
       props: true,
       component: () => import("./views/details/MedyaIletisimNews.vue")
     },
     //bilim-teknoloji
     {
       path: "/bilim-teknoloji",
-      name: "bilim-teknolojipage",
+      name: "bilim-teknoloji",
       component: BilimTeknolojiCategory
     },
     {
       path: "/bilim-teknoloji/:newsTitle",
-      name: "bilim-teknoloji",
+      name: "bilim-teknoloji-details",
       props: true,
       component: () => import("./views/details/BilimTeknolojiNews.vue")
     },
     //kultur-sanat
     {
       path: "/kultur-sanat",
-      name: "kultur-sanatpage",
+      name: "kultur-sanat",
       component: KulturSanatCategory
     },
     {
       path: "/kultur-sanat/:newsTitle",
-      name: "kultur-sanat",
+      name: "kultur-sanat-details",
       props: true,
       component: () => import("./views/details/KulturSanatNews.vue")
     },
     //arastirma-inceleme
     {
       path: "/arastirma-inceleme",
-      name: "arastirma-incelemepage",
+      name: "arastirma-inceleme",
       component: ArastirmaIncelemeCategory
     },
     {
       path: "/arastirma-inceleme/:newsTitle",
-      name: "arastirma-inceleme",
+      name: "arastirma-inceleme-details",
       props: true,
       component: () => import("./views/details/ArastirmaIncelemeNews.vue")
     },
     //saglik
     {
       path: "/saglik",
-      name: "saglikpage",
+      name: "saglik",
       component: SaglikCategory
     },
     {
       path: "/saglik/:newsTitle",
-      name: "saglik",
+      name: "saglik-details",
       props: true,
       component: () => import("./views/details/SaglikNews.vue")
     },
     //universite
     {
       path: "/universite",
-      name: "universitepage",
+      name: "universite",
       component: UniversiteCategory
     },
     {
       path: "/universite/:newsTitle",
-      name: "universite",
+      name: "universite-details",
       props: true,
       component: () => import("./views/details/UniversiteNews.vue")
     },

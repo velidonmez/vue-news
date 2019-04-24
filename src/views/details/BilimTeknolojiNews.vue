@@ -1,5 +1,5 @@
 <template>
-  <news-details category="bilim-teknoloji" newsSource="//demo.haberuskudar.com/api/category-contents/bilim-teknoloji"/>
+  <news-details category="bilim-teknoloji-details" newsSource="//demo.haberuskudar.com/api/category-contents/bilim-teknoloji"/>
 </template>
 
 <script>

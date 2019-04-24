@@ -1,12 +1,12 @@
 <template>
-  <div class="container anasayfa">
+  <div>
     <div class="row">
       <Navbar/>
     </div>
-    <div class="row">
-      <p class="w-100"></p>
-    </div>
-    <div class="container">
+    <div class="container anasayfa">
+      <div class="row">
+        <p class="w-100"></p>
+      </div>
       <NewsCards category="haber" newsSource="//demo.haberuskudar.com/api/contents"></NewsCards>
     </div>
   </div>

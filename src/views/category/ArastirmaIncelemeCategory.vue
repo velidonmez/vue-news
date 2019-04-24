@@ -1,13 +1,13 @@
 <template>
-  <div class="container new">
+  <div>
     <div class="row">
       <Navbar/>
     </div>
-    <div class="row">
-      <p class="w-100"></p>
-    </div>
-    <div class="container">
-      <NewsCards category="arastirma-inceleme" newsSource="//demo.haberuskudar.com/api/category-contents/arastirma-inceleme"></NewsCards>
+    <div class="container arastirma-inceleme">
+      <div class="row">
+        <p class="w-100"></p>
+      </div>
+      <NewsCards category="arastirma-inceleme-details" newsSource="//demo.haberuskudar.com/api/category-contents/arastirma-inceleme"></NewsCards>
     </div>
   </div>
 </template>

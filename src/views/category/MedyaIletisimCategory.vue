@@ -1,17 +1,19 @@
 <template>
-  <div class="container new">
+  <div>
     <div class="row">
       <Navbar/>
     </div>
-    <div class="row">
-      <p class="w-100"></p>
-    </div>
-    <div class="container">
-      <NewsCards category="medya-iletisim" newsSource="//demo.haberuskudar.com/api/category-contents/medya-iletisim"></NewsCards>
+    <div class="container medya-iletisim">
+      <div class="row">
+        <p class="w-100"></p>
+      </div>
+      <NewsCards
+        category="medya-iletisim-details"
+        newsSource="//demo.haberuskudar.com/api/category-contents/medya-iletisim"
+      ></NewsCards>
     </div>
   </div>
 </template>
-
 <script>
 // @ is an alias to /src
 import NewsCards from "@/components/NewsCards.vue";

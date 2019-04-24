@@ -1,5 +1,5 @@
 <template>
-  <news-details category="arastirma-inceleme" newsSource="//demo.haberuskudar.com/api/category-contents/arastirma-inceleme"/>
+  <news-details category="arastirma-inceleme-details" newsSource="//demo.haberuskudar.com/api/category-contents/arastirma-inceleme"/>
 </template>
 
 <script>

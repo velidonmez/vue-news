@@ -92,13 +92,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.cat-notif{
-  vertical-align:middle;
-  margin-left:-15px;
+.cat-notif {
+  vertical-align: middle;
+  margin-left: -15px;
   margin-top: -20px;
 }
-.badge-warning{
-  padding:3px;
+.badge-warning {
+  padding: 3px;
 }
 .img-container {
   height: 8em;

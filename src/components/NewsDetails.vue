@@ -1,25 +1,20 @@
 <template>
-  <div class="container news-details">
+  <div>
     <div class="row">
       <Navbar/>
     </div>
-    <div class="row">
-      <div class="col-lg-4 order-1">
-        <news :newsSource="newsSource" :category="category"></news>
-      </div>
-      <div class="col-lg-8 order-0">
-        <news-content
-          :image="news.image === null ? '' : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
-          :title="news.title"
-          :details="news.post"
-        ></news-content>
-        <!-- <news-content
-          v-for="otherNews in list.filter(item => item.id !== news.id)"
-          :key="otherNews.id"
-          :image="otherNews.image === null ? require('../assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
-          :title="otherNews.title"
-          :details="otherNews.post"
-        ></news-content> -->
+    <div class="container news-details">
+      <div class="row">
+        <div class="col-lg-4 order-1">
+          <news :newsSource="newsSource" :category="category"></news>
+        </div>
+        <div class="col-lg-8 order-0">
+          <news-content
+            :image="news.image === null ? '' : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
+            :title="news.title"
+            :details="news.post"
+          ></news-content>
+        </div>
       </div>
     </div>
   </div>
