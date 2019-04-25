@@ -1,13 +1,13 @@
 <template>
   <div class="news d-flex flex-column">
     <div class="wrapper">
-      <ul class="news-list">
+      <ul class="news-list .disable-scrollbars">
         <li v-for="(item, $index) in list" :key="$index" class="news-item" @click="scrollToTop">
           <span class="score">
             <img
               class="img-thumbnail rounded mx-auto d-block"
-              :src="item.image === null || item.image === undefined ? require('../assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
-            />
+              :src="item.image === null || item.image === undefined ? require('@/assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
+            >
           </span>
           <router-link
             :to="{
@@ -22,8 +22,8 @@
             <!-- <span class="by">
               by
               {{ item.student_id }} |
-            </span> -->
-            <span class="time">{{ item.created_at.split("T")[0] }} | </span>
+            </span>-->
+            <span class="time">{{ item.created_at.split("T")[0] }} |</span>
           </span>
           <span class="time">{{ item.category.name }}</span>
         </li>
@@ -84,6 +84,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.disable-scrollbars::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Chrome/Safari/Webkit */
+}
+
+.disable-scrollbars {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
 .news-list {
   position: absolute;
   margin: 30px 0;

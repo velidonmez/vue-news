@@ -2,7 +2,7 @@
   <article class="newsContent mt-3 p-4">
     <img class="img-fluid" :src="image" alt>
     <h1>{{ title }}</h1>
-    <div v-html="details"></div>
+    <div v-html="details" class="details"></div>
   </article>
 </template>
 
@@ -18,4 +18,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.newsContent .details img {
+  max-width: 100%;
+  height: auto;
+}
+</style>

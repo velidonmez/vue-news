@@ -2,7 +2,7 @@
   <section class="news">
     <div class="container">
       <div class="row">
-        <h3>
+        <h3 class="cat-title">
           {{this.$route.name == 'haber' ? 'Anasayfa'
           :this.$route.name == 'arastirma-inceleme' ? 'Araştırma-İnceleme'
           :this.$route.name == 'bilim-teknoloji' ? 'Bilim-Teknoloji'
@@ -31,7 +31,7 @@
               <div class="img-container">
                 <img
                   class="img-thumbnail"
-                  :src="item.image === null ? require('../assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
+                  :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
                 >
               </div>
               <div class="card-img-overlay">
@@ -113,6 +113,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.cat-title {
+  margin-left: 30px;
+}
 .cat-notif {
   vertical-align: middle;
   margin-left: -15px;
