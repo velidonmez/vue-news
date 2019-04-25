@@ -1,8 +1,25 @@
 <template>
   <section class="news">
-    <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <h3>
+          {{this.$route.name == 'haber' ? 'Anasayfa'
+          :this.$route.name == 'arastirma-inceleme' ? 'Araştırma-İnceleme'
+          :this.$route.name == 'bilim-teknoloji' ? 'Bilim-Teknoloji'
+          :this.$route.name == 'kultur-sanat' ? 'Kültür-Sanat'
+          :this.$route.name == 'medya-iletisim' ? 'Medya-İletişim'
+          :this.$route.name == 'saglik' ? 'Sağlık'
+          :this.$route.name == 'spor' ? 'Spor'
+          :this.$route.name == 'universite' ? 'Üniversite'
+          : 'Güncel Haberler'}}
+        </h3>
+      </div>
       <div class="row px-3">
-        <div v-for="(item, $index) in list" :key="$index" class="col-md-4 col-sm-6 col-lg-3">
+        <div
+          v-for="(item, $index) in list"
+          :key="$index"
+          class="col-xs-6 col-md-4 col-sm-6 col-lg-3"
+        >
           <div class="card mb-4">
             <router-link
               :to="{
@@ -18,7 +35,11 @@
                 >
               </div>
               <div class="card-img-overlay">
-                <span class="badge badge-pill badge-success cat-notif">{{ item.category.name }}</span>
+                <span class="badge badge-pill cat-notif">
+                  {{
+                  item.category.name
+                  }}
+                </span>
               </div>
               <div class="card-body p-2">
                 <div class="news-title">
@@ -48,7 +69,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      currentPage: this.$route.path,
+      currentPage: this.$route.name,
       page: 1,
       list: []
     };
@@ -95,10 +116,9 @@ export default {
 .cat-notif {
   vertical-align: middle;
   margin-left: -15px;
-  margin-top: -20px;
-}
-.badge-warning {
-  padding: 3px;
+  margin-top: -35px;
+  color: #fff;
+  background-color: #004c4c;
 }
 .img-container {
   height: 8em;

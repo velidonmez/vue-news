@@ -8,27 +8,47 @@
           </div>
           <div class="col-lg-3 ml-auto">
             <div class="social-icon">
-              <a href="#" class="fab fa-facebook"></a>
-              <a href="#" class="fab fa-twitter"></a>
-              <a href="#" class="fab fa-google-plus"></a>
-              <a href="#" class="fab fa-linkedin"></a>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/uskudaruniversitesi"
+                class="fab fa-facebook"
+              ></a>
+              <a
+                target="_blank"
+                href="https://twitter.com/uskudaruni"
+                class="fab fa-twitter"
+              ></a>
+              <a
+                target="_blank"
+                href="https://instagram.com/uskudaruni"
+                class="fab fa-instagram"
+              ></a>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/user/uskudaruniversitesi"
+                class="fab fa-youtube"
+              ></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="top-head left">
+    <div class="top-head">
       <div class="container-fluid">
-        <div class="row px-3">
-          <div class="col-md-6 col-lg-4 pt-2 m-auto">
+        <div class="row">
+          <div class="col">
             <router-link to="/">
-              <img src="../assets/img/haberuskudarlogo.png" alt="logo" class="img-fluid nav-logo">
+              <img
+                src="../assets/img/haberuskudarlogo.png"
+                alt="logo"
+                class="mx-auto d-block img-fluid nav-logo"
+              />
             </router-link>
           </div>
         </div>
       </div>
     </div>
-    <section class="top-nav">
+    <section class="container top-nav">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button
           class="navbar-toggler"
@@ -44,7 +64,9 @@
         <div class="navbar-collapse collapse" id="navbarSupportedContent" style>
           <ul class="nav navbar-nav m-auto">
             <li v-for="cat in list" :key="cat.id" class="nav-item">
-              <router-link class="nav-link" :to="{ name: cat.slug }">{{cat.name}}</router-link>
+              <router-link class="nav-link" :to="{ name: cat.slug }">{{
+                cat.name
+              }}</router-link>
             </li>
           </ul>
         </div>
@@ -82,27 +104,31 @@ export default {
   },
   mounted() {
     const api = "https://demo.haberuskudar.com/api/content-categories";
-    axios.get(api).then(data => {
-      if (data.data.data) {
-        this.list.push(
-          {
-            id: 0,
-            slug: "anasayfa",
-            name: "Ana Sayfa"
-          },
-          ...data.data.data
-        );
-        console.log(this.list);
-      }
-    });
+    axios
+      .get(api)
+      .then(data => {
+        if (data.data.data) {
+          this.list.push(
+            {
+              id: 0,
+              slug: "anasayfa",
+              name: "Ana Sayfa"
+            },
+            ...data.data.data
+          );
+        }
+      })
+      .catch(e => {
+        throw new Error(e);
+      });
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.navbar {
-  top: 25px;
+.nav-logo {
+  width: 500px;
 }
 header {
   float: left;
