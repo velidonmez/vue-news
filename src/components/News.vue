@@ -7,7 +7,7 @@
             <img
               class="img-thumbnail rounded mx-auto d-block"
               :src="item.image === null || item.image === undefined ? require('@/assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
-            >
+            />
           </span>
           <router-link
             :to="{
@@ -19,10 +19,6 @@
           </router-link>
           <p class="w-100"></p>
           <span class="meta">
-            <!-- <span class="by">
-              by
-              {{ item.student_id }} |
-            </span>-->
             <span class="time">{{ item.created_at.split("T")[0] }} |</span>
           </span>
           <span class="time">{{ item.category.name }}</span>
@@ -40,7 +36,6 @@ import axios from "axios";
 export default {
   data() {
     return {
-      currentPage: this.$route.path,
       page: 1,
       list: []
     };
@@ -84,15 +79,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.disable-scrollbars::-webkit-scrollbar {
-  width: 0px;
-  background: transparent; /* Chrome/Safari/Webkit */
-}
-
-.disable-scrollbars {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
 .news-list {
   position: absolute;
   margin: 30px 0;

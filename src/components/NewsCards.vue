@@ -3,15 +3,7 @@
     <div class="container">
       <div class="row">
         <h3 class="cat-title">
-          {{this.$route.name == 'haber' ? 'Anasayfa'
-          :this.$route.name == 'arastirma-inceleme' ? 'Araştırma-İnceleme'
-          :this.$route.name == 'bilim-teknoloji' ? 'Bilim-Teknoloji'
-          :this.$route.name == 'kultur-sanat' ? 'Kültür-Sanat'
-          :this.$route.name == 'medya-iletisim' ? 'Medya-İletişim'
-          :this.$route.name == 'saglik' ? 'Sağlık'
-          :this.$route.name == 'spor' ? 'Spor'
-          :this.$route.name == 'universite' ? 'Üniversite'
-          : 'Güncel Haberler'}}
+          {{title}}
         </h3>
       </div>
       <div class="row px-3">
@@ -27,7 +19,6 @@
                 params: { newsId: item.id.toString(), newsTitle: item.slug }
               }"
             >
-              <!-- todo: find a suitable image for null values -->
               <div class="img-container">
                 <img
                   class="img-thumbnail"
@@ -71,7 +62,16 @@ export default {
     return {
       currentPage: this.$route.name,
       page: 1,
-      list: []
+      list: [],
+      title: this.$route.name == 'haber' ? 'Anasayfa'
+          :this.$route.name == 'arastirma-inceleme' ? 'Araştırma-İnceleme'
+          :this.$route.name == 'bilim-teknoloji' ? 'Bilim-Teknoloji'
+          :this.$route.name == 'kultur-sanat' ? 'Kültür-Sanat'
+          :this.$route.name == 'medya-iletisim' ? 'Medya-İletişim'
+          :this.$route.name == 'saglik' ? 'Sağlık'
+          :this.$route.name == 'spor' ? 'Spor'
+          :this.$route.name == 'universite' ? 'Üniversite'
+          : 'Güncel Haberler'
     };
   },
   name: "NewsCards",
@@ -97,7 +97,7 @@ export default {
           if (data.data.data.length) {
             this.page += 1;
             this.list.push(...data.data.data);
-            console.log(this.list);
+            console.log(this.$route);
             $state.loaded();
           } else {
             $state.complete();
@@ -106,6 +106,33 @@ export default {
     },
     scrollToTop: function() {
       document.documentElement.scrollTop = 0;
+    }
+  },
+  metaInfo() {
+    return {
+      title: this.title + " - Haber Üsküdar" ,
+      meta: [
+        {
+          name: 'description',
+          content: 'Haber Üsküdar ' + this.title + "Sayfası"
+        },
+        {
+          property: 'article:publisher',
+          content: 'https://www.facebook.com/UskudarUniversitesi/'
+        },
+        {
+          property: 'og:site_name',
+          content: 'Üsküdar Üniversitesi'
+        },
+        {
+          property: 'og:title',
+          content: 'Haber Üsküdar ' + this.title + "Sayfası"
+        },
+        {
+          property: 'og:url',
+          content: this.$route.fullpath
+        }
+      ]
     }
   }
 };
@@ -133,12 +160,6 @@ export default {
   height: 16em;
   overflow: hidden;
 }
-.title-large {
-  font-size: 20px;
-  margin: 10px 0 5px;
-  line-height: 27px;
-  color: #141517;
-}
 .title-small {
   color: #141517;
   font-size: 16px;
@@ -146,19 +167,10 @@ export default {
   line-height: 23px;
   margin: 6px 0 0;
 }
-.title-x-small {
-  font-size: 18px;
-  margin: 0px;
-}
 .title-large a,
 .title-small a,
 .title-x-small a {
   color: inherit;
-}
-.banner-sec {
-  float: left;
-  width: 100%;
-  background: #ebebeb;
 }
 .card-block {
   padding: 0 10px 10px;

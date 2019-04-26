@@ -52,7 +52,8 @@ export default {
     }
   },
   methods: {
-    scroll() {
+    //fire an event when scroll to bottom
+    /* scroll() {
       window.onscroll = () => {
         let bottomOfWindow =
           Math.max(
@@ -68,7 +69,7 @@ export default {
           //this.scrolledToBottom = true; // replace it with your code
         }
       };
-    },
+    }, */
     fillNewsDetails: function() {
       const id = this.$route.params.newsTitle;
       try {
@@ -98,50 +99,43 @@ export default {
       }
     });
   },
-  mounted() {
+  /* mounted() {
     this.scroll();
+  }, */
+  metaInfo() {
+    return {
+      title: this.news.title ,
+      meta: [
+        {
+          name: 'description',
+          content: this.news.explanation
+        },
+        {
+          property: 'article:publisher',
+          content: 'https://www.facebook.com/UskudarUniversitesi/'
+        },
+        {
+          property: 'og:site_name',
+          content: 'Üsküdar Üniversitesi'
+        },
+        {
+          property: 'og:title',
+          content: 'Haber Üsküdar - ' + this.news.title
+        },
+        {
+          property: 'og:url',
+          content: this.$route.fullpath
+        },
+        {
+          property: 'og:image',
+          content: this.news.image
+        },
+        {
+          property: 'og:type',
+          content: 'article'
+        }
+      ]
+    }
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-/deep/ .wrapper ul {
-  height: calc(100vh - 100px);
-  overflow-y: auto;
-}
-.news-list {
-  position: absolute;
-  margin: 30px 0;
-  width: 100%;
-  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
-}
-.news-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-.news-item {
-  background-color: #fff;
-  padding: 20px 30px 20px 80px;
-  border-bottom: 1px solid #eee;
-  position: relative;
-  line-height: 20px;
-}
-.news-item .score {
-  color: #f60;
-  font-size: 1.1em;
-  font-weight: 700;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 80px;
-  text-align: center;
-  margin-top: -10px;
-}
-.news-item .meta,
-.news-item .host {
-  font-size: 0.85em;
-  color: #828282;
-}
-</style>
