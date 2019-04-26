@@ -98,7 +98,7 @@ export default {
           if (data.data.data.length) {
             this.page += 1;
             this.list.push(...data.data.data);
-            console.log(this.list);
+            //console.log(this.list);
             $state.loaded();
           } else {
             $state.complete();

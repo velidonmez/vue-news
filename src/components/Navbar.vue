@@ -98,7 +98,7 @@ export default {
     $route() {
       // react to route changes...
       this.page = this.$route.path;
-      console.log(this.$route.path);
+      //console.log(this.$route.path);
     }
   },
   mounted() {

@@ -70,9 +70,9 @@ export default {
       };
     }, */
     fillNewsDetails: async function() {
-      const id = this.$route.params.newsId;
+      const id = this.$route.params.newsTitle;
       const apiUrl = "https://demo.haberuskudar.com/api/content-detail/" + id;
-      console.log(apiUrl);
+      //console.log(apiUrl);
       //console.log(this.$route.params.newsId);
       await axios
         .get(apiUrl)
@@ -80,7 +80,7 @@ export default {
           if (data) {
             this.news = data.data;
             //this.news = this.fillNewsDetails();
-            console.log(this.news);
+            //console.log(this.news);
             //console.log(this.$route.params.newsTitle);
           } else {
             this.$router.push("/");
@@ -88,13 +88,14 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          this.$router.push("/");
         });
     }
   },
   watch: {
     $route() {
       // react to route changes...
-      console.log(this.$route.params.newsId);
+      //console.log(this.$route.params.newsId);
       this.news = this.fillNewsDetails();
     }
   },

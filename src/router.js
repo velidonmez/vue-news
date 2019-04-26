@@ -27,7 +27,7 @@ export default new Router({
       component: MainPage
     },
     {
-      path: "/haber/:newsTitle/:newsId",
+      path: "/:newsTitle",
       name: "haber",
       props: true,
       component: () => import("./views/details/MainPageNews.vue")
@@ -39,7 +39,7 @@ export default new Router({
       component: SporCategory
     },
     {
-      path: "/haber/:newsId/:newsTitle",
+      path: "/:newsTitle",
       name: "spor-details",
       props: true,
       component: () => import("./views/details/SporNews.vue")
@@ -51,7 +51,7 @@ export default new Router({
       component: MedyaIletisimCategory
     },
     {
-      path: "/haber/:newsTitle",
+      path: "/:newsTitle",
       name: "medya-iletisim-details",
       props: true,
       component: () => import("./views/details/MedyaIletisimNews.vue")
@@ -63,7 +63,7 @@ export default new Router({
       component: BilimTeknolojiCategory
     },
     {
-      path: "/haber/:newsTitle",
+      path: "/:newsTitle",
       name: "bilim-teknoloji-details",
       props: true,
       component: () => import("./views/details/BilimTeknolojiNews.vue")
@@ -75,7 +75,7 @@ export default new Router({
       component: KulturSanatCategory
     },
     {
-      path: "/haber/:newsTitle",
+      path: "/:newsTitle",
       name: "kultur-sanat-details",
       props: true,
       component: () => import("./views/details/KulturSanatNews.vue")
@@ -87,7 +87,7 @@ export default new Router({
       component: ArastirmaIncelemeCategory
     },
     {
-      path: "/haber/:newsTitle",
+      path: "/:newsTitle",
       name: "arastirma-inceleme-details",
       props: true,
       component: () => import("./views/details/ArastirmaIncelemeNews.vue")
@@ -99,7 +99,7 @@ export default new Router({
       component: SaglikCategory
     },
     {
-      path: "/haber/:newsTitle",
+      path: "/:newsTitle",
       name: "saglik-details",
       props: true,
       component: () => import("./views/details/SaglikNews.vue")
@@ -111,7 +111,7 @@ export default new Router({
       component: UniversiteCategory
     },
     {
-      path: "/haber/:newsTitle",
+      path: "/:newsTitle",
       name: "universite-details",
       props: true,
       component: () => import("./views/details/UniversiteNews.vue")
