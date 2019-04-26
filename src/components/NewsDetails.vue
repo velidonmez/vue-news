@@ -104,7 +104,7 @@ export default {
   }, */
   metaInfo() {
     return {
-      title: this.news.title ,
+      title: this.news.title || 'Haber Üsküdar',
       meta: [
         {
           name: 'description',
@@ -128,7 +128,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: this.news.image
+          content: this.news.image || ''
         },
         {
           property: 'og:type',

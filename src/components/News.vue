@@ -79,6 +79,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.wrapper ul {
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
 .news-list {
   position: absolute;
   margin: 30px 0;
