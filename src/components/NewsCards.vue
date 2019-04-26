@@ -2,9 +2,7 @@
   <section class="news">
     <div class="container">
       <div class="row">
-        <h3 class="cat-title">
-          {{title}}
-        </h3>
+        <h3 class="cat-title">{{title}}</h3>
       </div>
       <div class="row px-3">
         <div
@@ -63,15 +61,24 @@ export default {
       currentPage: this.$route.name,
       page: 1,
       list: [],
-      title: this.$route.name == 'haber' ? 'Anasayfa'
-          :this.$route.name == 'arastirma-inceleme' ? 'Araştırma-İnceleme'
-          :this.$route.name == 'bilim-teknoloji' ? 'Bilim-Teknoloji'
-          :this.$route.name == 'kultur-sanat' ? 'Kültür-Sanat'
-          :this.$route.name == 'medya-iletisim' ? 'Medya-İletişim'
-          :this.$route.name == 'saglik' ? 'Sağlık'
-          :this.$route.name == 'spor' ? 'Spor'
-          :this.$route.name == 'universite' ? 'Üniversite'
-          : 'Güncel Haberler'
+      title:
+        this.$route.name == "haber"
+          ? "Anasayfa"
+          : this.$route.name == "arastirma-inceleme"
+          ? "Araştırma-İnceleme"
+          : this.$route.name == "bilim-teknoloji"
+          ? "Bilim-Teknoloji"
+          : this.$route.name == "kultur-sanat"
+          ? "Kültür-Sanat"
+          : this.$route.name == "medya-iletisim"
+          ? "Medya-İletişim"
+          : this.$route.name == "saglik"
+          ? "Sağlık"
+          : this.$route.name == "spor"
+          ? "Spor"
+          : this.$route.name == "universite"
+          ? "Üniversite"
+          : "Güncel Haberler"
     };
   },
   name: "NewsCards",
@@ -110,30 +117,30 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.title + " - Haber Üsküdar" ,
+      title: this.title + " - Haber Üsküdar",
       meta: [
         {
-          name: 'description',
-          content: 'Haber Üsküdar ' + this.title + "Sayfası"
+          name: "description",
+          content: "Haber Üsküdar " + this.title + "Sayfası"
         },
         {
-          property: 'article:publisher',
-          content: 'https://www.facebook.com/UskudarUniversitesi/'
+          property: "article:publisher",
+          content: "https://www.facebook.com/UskudarUniversitesi/"
         },
         {
-          property: 'og:site_name',
-          content: 'Üsküdar Üniversitesi'
+          property: "og:site_name",
+          content: "Üsküdar Üniversitesi"
         },
         {
-          property: 'og:title',
-          content: 'Haber Üsküdar ' + this.title + "Sayfası"
+          property: "og:title",
+          content: "Haber Üsküdar " + this.title + "Sayfası"
         },
         {
-          property: 'og:url',
+          property: "og:url",
           content: this.$route.fullpath
         }
       ]
-    }
+    };
   }
 };
 </script>
