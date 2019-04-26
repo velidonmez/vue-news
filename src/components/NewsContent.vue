@@ -19,8 +19,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.newsContent .details img {
-  max-width: 100%;
-  height: auto;
+.newsContent .details p img {
+  max-width: 100%!important;
+  height: auto!important;
 }
 </style>
