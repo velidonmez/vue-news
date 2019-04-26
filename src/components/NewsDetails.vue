@@ -5,16 +5,15 @@
     </div>
     <div class="container news-details">
       <div class="row">
-        <div class="col-lg-4 order-1">
-          <news :newsSource="newsSource" :category="category"></news>
-        </div>
-        <div class="col-lg-8 order-0">
-          <news-content
+        
+          <news class="col-lg-4 order-1" :newsSource="newsSource" :category="category"></news>
+        
+          <news-content class="col-lg-8 order-0"
             :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
             :title="news.title"
             :details="news.post"
           ></news-content>
-        </div>
+        
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <article class="newsContent mt-3 p-4">
+  <article class="newsContent mt-3 pt-3 pr-3">
     <img class="img-fluid" :src="image" alt>
     <h1>{{ title }}</h1>
     <div v-html="details" class="details"></div>
@@ -22,5 +22,8 @@ export default {
 .newsContent .details p img {
   max-width: 100%!important;
   height: auto!important;
+}
+.newsContent{
+  overflow-x: auto;
 }
 </style>

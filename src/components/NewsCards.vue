@@ -1,56 +1,50 @@
 <template>
-  <section class="news">
-    <div class="container">
-      <div class="row">
-        <h3 class="cat-title">{{title}}</h3>
-      </div>
-      <div class="row px-3">
-        <div
-          v-for="(item, $index) in list"
-          :key="$index"
-          class="col-xs-6 col-md-4 col-sm-6 col-lg-3"
-        >
-          <div class="card mb-4">
-            <router-link
-              :to="{
+  <section class="news-cards">
+    <div class="row">
+      <h3 class="cat-title">{{title}}</h3>
+    </div>
+    <div class="row">
+      <div v-for="(item, $index) in list" :key="$index" class="card-content col-xs-6 col-md-4 col-sm-6 col-lg-3">
+        <div class="card mb-4">
+          <router-link
+            :to="{
                 name: category,
                 params: { newsId: item.id.toString(), newsTitle: item.slug }
               }"
-            >
-              <div class="img-container">
-                <img
-                  class="img-thumbnail"
-                  :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
-                >
+          >
+            <div class="img-container">
+              <img
+                class="img-thumbnail"
+                :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
+              >
+            </div>
+            <div class="card-img-overlay">
+              <span class="badge badge-pill cat-notif">
+                {{
+                item.category.name
+                }}
+              </span>
+            </div>
+            <div class="card-body p-2">
+              <div class="news-title">
+                <h2 class="title-small">
+                  <a href="#">{{ item.title }}</a>
+                </h2>
               </div>
-              <div class="card-img-overlay">
-                <span class="badge badge-pill cat-notif">
-                  {{
-                  item.category.name
-                  }}
-                </span>
-              </div>
-              <div class="card-body p-2">
-                <div class="news-title">
-                  <h2 class="title-small">
-                    <a href="#">{{ item.title }}</a>
-                  </h2>
-                </div>
-                <p class="card-text">
-                  <small class="text-time">
-                    <em>{{ item.created_at.split("T")[0] }}</em>
-                  </small>
-                </p>
-              </div>
-            </router-link>
-          </div>
+              <p class="card-text">
+                <small class="text-time">
+                  <em>{{ item.created_at.split("T")[0] }}</em>
+                </small>
+              </p>
+            </div>
+          </router-link>
         </div>
       </div>
-      <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
-        <div slot="no-more">Liste sonu.</div>
-        <div slot="no-results">Sonuç bulunamadı.</div>
-      </infinite-loading>
     </div>
+    <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
+      <div slot="no-more">Liste sonu.</div>
+      <div slot="no-results">Sonuç bulunamadı.</div>
+    </infinite-loading>
   </section>
 </template>
 <script>
@@ -147,9 +141,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.cat-title {
-  margin-left: 30px;
+.card-content {
+  margin-left: -15px;
 }
+
 .cat-notif {
   vertical-align: middle;
   margin-left: -15px;

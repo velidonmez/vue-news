@@ -39,19 +39,19 @@ export default new Router({
       component: SporCategory
     },
     {
-      path: "/spor/:newsId/:newsTitle",
+      path: "/haber/:newsId/:newsTitle",
       name: "spor-details",
       props: true,
       component: () => import("./views/details/SporNews.vue")
     },
     //medya-iletisim
     {
-      path: "/medya-iletisim",
+      path: "/haber",
       name: "medya-iletisim",
       component: MedyaIletisimCategory
     },
     {
-      path: "/medya-iletisim/:newsTitle",
+      path: "/haber/:newsTitle",
       name: "medya-iletisim-details",
       props: true,
       component: () => import("./views/details/MedyaIletisimNews.vue")
@@ -63,7 +63,7 @@ export default new Router({
       component: BilimTeknolojiCategory
     },
     {
-      path: "/bilim-teknoloji/:newsTitle",
+      path: "/haber/:newsTitle",
       name: "bilim-teknoloji-details",
       props: true,
       component: () => import("./views/details/BilimTeknolojiNews.vue")
@@ -75,7 +75,7 @@ export default new Router({
       component: KulturSanatCategory
     },
     {
-      path: "/kultur-sanat/:newsTitle",
+      path: "/haber/:newsTitle",
       name: "kultur-sanat-details",
       props: true,
       component: () => import("./views/details/KulturSanatNews.vue")
@@ -87,7 +87,7 @@ export default new Router({
       component: ArastirmaIncelemeCategory
     },
     {
-      path: "/arastirma-inceleme/:newsTitle",
+      path: "/haber/:newsTitle",
       name: "arastirma-inceleme-details",
       props: true,
       component: () => import("./views/details/ArastirmaIncelemeNews.vue")
@@ -99,7 +99,7 @@ export default new Router({
       component: SaglikCategory
     },
     {
-      path: "/saglik/:newsTitle",
+      path: "/haber/:newsTitle",
       name: "saglik-details",
       props: true,
       component: () => import("./views/details/SaglikNews.vue")
@@ -111,7 +111,7 @@ export default new Router({
       component: UniversiteCategory
     },
     {
-      path: "/universite/:newsTitle",
+      path: "/haber/:newsTitle",
       name: "universite-details",
       props: true,
       component: () => import("./views/details/UniversiteNews.vue")
