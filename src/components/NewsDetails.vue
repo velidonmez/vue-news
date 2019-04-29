@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="row">
+    <div class="row mx-auto">
       <Navbar/>
     </div>
     <div class="container news-details">
-      <div class="row">
+      <div class="row mx-auto">
         
           <news class="col-lg-4 order-1" :newsSource="newsSource" :category="category"></news>
         

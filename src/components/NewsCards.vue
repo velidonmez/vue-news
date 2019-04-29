@@ -1,6 +1,6 @@
 <template>
   <section class="news-cards">
-    <div class="row">
+    <div class="row ml-auto">
       <h3 class="cat-title">{{title}}</h3>
     </div>
     <div class="row">
@@ -141,9 +141,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.card-content {
+/* .card-content {
   margin-left: -15px;
-}
+} */
 
 .cat-notif {
   vertical-align: middle;

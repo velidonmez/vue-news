@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row">
+    <div class="row mx-auto">
       <Navbar/>
     </div>
     <div class="container arastirma-inceleme">
