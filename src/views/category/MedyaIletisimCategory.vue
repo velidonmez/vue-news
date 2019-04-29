@@ -9,7 +9,7 @@
       </div>
       <NewsCards
         category="medya-iletisim-details"
-        newsSource="//demo.haberuskudar.com/api/category-contents/medya-iletisim"
+        newsSource="//panel.haberuskudar.com/api/category-contents/medya-iletisim"
       ></NewsCards>
     </div>
   </div>

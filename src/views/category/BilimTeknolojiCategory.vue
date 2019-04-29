@@ -9,7 +9,7 @@
       </div>
       <NewsCards
         category="bilim-teknoloji-details"
-        newsSource="//demo.haberuskudar.com/api/category-contents/bilim-teknoloji"
+        newsSource="//panel.haberuskudar.com/api/category-contents/bilim-teknoloji"
       ></NewsCards>
     </div>
   </div>

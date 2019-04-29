@@ -9,7 +9,7 @@
           <news class="col-lg-4 order-1" :newsSource="newsSource" :category="category"></news>
         
           <news-content class="col-lg-8 order-0"
-            :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+news.image"
+            :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://panel.haberuskudar.com/uploads/content/images/'+news.image"
             :title="news.title"
             :details="news.post"
           ></news-content>
@@ -71,19 +71,19 @@ export default {
     }, */
     fillNewsDetails: async function() {
       const id = this.$route.params.newsTitle;
-      const apiUrl = "https://demo.haberuskudar.com/api/content-detail/" + id;
+      const apiUrl = "https://panel.haberuskudar.com/api/content-detail/" + id;
       //console.log(apiUrl);
       //console.log(this.$route.params.newsId);
       await axios
         .get(apiUrl)
         .then(({ data }) => {
-          if (data) {
+          if (data.hasOwnProperty('data')) {
             this.news = data.data;
             //this.news = this.fillNewsDetails();
             //console.log(this.news);
             //console.log(this.$route.params.newsTitle);
           } else {
-            this.$router.push("/");
+            this.$router.push("/404/not-found");
           }
         })
         .catch(err => {

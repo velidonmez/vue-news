@@ -34,7 +34,7 @@ export default new Router({
     },
     //spor
     {
-      path: "/spor",
+      path: "/kategori/spor",
       name: "spor",
       component: SporCategory
     },
@@ -46,7 +46,7 @@ export default new Router({
     },
     //medya-iletisim
     {
-      path: "/haber",
+      path: "/kategori/medya-iletisim",
       name: "medya-iletisim",
       component: MedyaIletisimCategory
     },
@@ -58,7 +58,7 @@ export default new Router({
     },
     //bilim-teknoloji
     {
-      path: "/bilim-teknoloji",
+      path: "/kategori/bilim-teknoloji",
       name: "bilim-teknoloji",
       component: BilimTeknolojiCategory
     },
@@ -70,7 +70,7 @@ export default new Router({
     },
     //kultur-sanat
     {
-      path: "/kultur-sanat",
+      path: "/kategori/kultur-sanat",
       name: "kultur-sanat",
       component: KulturSanatCategory
     },
@@ -82,7 +82,7 @@ export default new Router({
     },
     //arastirma-inceleme
     {
-      path: "/arastirma-inceleme",
+      path: "/kategori/arastirma-inceleme",
       name: "arastirma-inceleme",
       component: ArastirmaIncelemeCategory
     },
@@ -94,7 +94,7 @@ export default new Router({
     },
     //saglik
     {
-      path: "/saglik",
+      path: "/kategori/saglik",
       name: "saglik",
       component: SaglikCategory
     },
@@ -106,7 +106,7 @@ export default new Router({
     },
     //universite
     {
-      path: "/universite",
+      path: "/kategori/universite",
       name: "universite",
       component: UniversiteCategory
     },
@@ -115,6 +115,12 @@ export default new Router({
       name: "universite-details",
       props: true,
       component: () => import("./views/details/UniversiteNews.vue")
+    },
+    {
+      path: "/404/not-found",
+      name: "not-found",
+      props: true,
+      component: () => import("./components/NotFoundComponent.vue")
     },
     //redirect to main page
     {

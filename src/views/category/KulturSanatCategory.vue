@@ -9,7 +9,7 @@
       </div>
       <NewsCards
         category="kultur-sanat-details"
-        newsSource="//demo.haberuskudar.com/api/category-contents/kultur-sanat"
+        newsSource="//panel.haberuskudar.com/api/category-contents/kultur-sanat"
       ></NewsCards>
     </div>
   </div>

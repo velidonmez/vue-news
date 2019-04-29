@@ -7,7 +7,7 @@
       <div class="row">
         <p class="w-100"></p>
       </div>
-      <NewsCards category="spor-details" newsSource="//demo.haberuskudar.com/api/category-contents/spor"></NewsCards>
+      <NewsCards category="spor-details" newsSource="//panel.haberuskudar.com/api/category-contents/spor"></NewsCards>
     </div>
   </div>
 </template>

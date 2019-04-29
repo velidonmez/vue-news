@@ -102,7 +102,7 @@ export default {
     }
   },
   mounted() {
-    const api = "https://demo.haberuskudar.com/api/content-categories";
+    const api = "//panel.haberuskudar.com/api/content-categories";
     axios
       .get(api)
       .then(data => {

@@ -9,7 +9,7 @@
       </div>
       <NewsCards
         category="saglik-details"
-        newsSource="//demo.haberuskudar.com/api/category-contents/saglik"
+        newsSource="//panel.haberuskudar.com/api/category-contents/saglik"
       ></NewsCards>
     </div>
   </div>

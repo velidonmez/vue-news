@@ -1,5 +1,5 @@
 <template>
-  <news-details category="kultur-sanat-details" newsSource="//demo.haberuskudar.com/api/category-contents/kultur-sanat"/>
+  <news-details category="kultur-sanat-details" newsSource="//panel.haberuskudar.com/api/category-contents/kultur-sanat"/>
 </template>
 
 <script>

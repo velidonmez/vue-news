@@ -1,5 +1,5 @@
 <template>
-  <news-details category="haber" newsSource="//demo.haberuskudar.com/api/contents"/>
+  <news-details category="haber" newsSource="//panel.haberuskudar.com/api/contents"/>
 </template>
 
 <script>

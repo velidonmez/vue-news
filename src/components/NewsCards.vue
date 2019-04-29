@@ -15,7 +15,7 @@
             <div class="img-container">
               <img
                 class="img-thumbnail"
-                :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://demo.haberuskudar.com/uploads/content/images/'+item.image"
+                :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://panel.haberuskudar.com/uploads/content/images/'+item.image"
               >
             </div>
             <div class="card-img-overlay">
