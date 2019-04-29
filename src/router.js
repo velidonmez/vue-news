@@ -26,96 +26,105 @@ export default new Router({
       name: "anasayfa",
       component: MainPage
     },
+    //spor
+    {
+      path: "/spor",
+      name: "spor",
+      component: SporCategory
+    },
+    //medya-iletisim
+    {
+      path: "/medya-iletisim",
+      name: "medya-iletisim",
+      component: MedyaIletisimCategory
+    },
+    //bilim-teknoloji
+    {
+      path: "/bilim-teknoloji",
+      name: "bilim-teknoloji",
+      component: BilimTeknolojiCategory
+    },
+    //kultur-sanat
+    {
+      path: "/kultur-sanat",
+      name: "kultur-sanat",
+      component: KulturSanatCategory
+    },
+    //arastirma-inceleme
+    {
+      path: "/arastirma-inceleme",
+      name: "arastirma-inceleme",
+      component: ArastirmaIncelemeCategory
+    },
+    //universite
+    {
+      path: "/universite",
+      name: "universite",
+      component: UniversiteCategory
+    },
+    //saglik
+    {
+      path: "/saglik",
+      name: "saglik",
+      component: SaglikCategory
+    },
+    //guncel haber detay
     {
       path: "/:newsTitle",
       name: "haber",
       props: true,
       component: () => import("./views/details/MainPageNews.vue")
     },
-    //spor
-    {
-      path: "/kategori/spor",
-      name: "spor",
-      component: SporCategory
-    },
+    //spor haber detay
     {
       path: "/:newsTitle",
       name: "spor-details",
       props: true,
       component: () => import("./views/details/SporNews.vue")
     },
-    //medya-iletisim
-    {
-      path: "/kategori/medya-iletisim",
-      name: "medya-iletisim",
-      component: MedyaIletisimCategory
-    },
+    //medya iletisim haber detay
     {
       path: "/:newsTitle",
       name: "medya-iletisim-details",
       props: true,
       component: () => import("./views/details/MedyaIletisimNews.vue")
     },
-    //bilim-teknoloji
-    {
-      path: "/kategori/bilim-teknoloji",
-      name: "bilim-teknoloji",
-      component: BilimTeknolojiCategory
-    },
+    //bilim teknoloji haber detay
     {
       path: "/:newsTitle",
       name: "bilim-teknoloji-details",
       props: true,
       component: () => import("./views/details/BilimTeknolojiNews.vue")
     },
-    //kultur-sanat
-    {
-      path: "/kategori/kultur-sanat",
-      name: "kultur-sanat",
-      component: KulturSanatCategory
-    },
+    //kültür sanat haber detay
     {
       path: "/:newsTitle",
       name: "kultur-sanat-details",
       props: true,
       component: () => import("./views/details/KulturSanatNews.vue")
     },
-    //arastirma-inceleme
-    {
-      path: "/kategori/arastirma-inceleme",
-      name: "arastirma-inceleme",
-      component: ArastirmaIncelemeCategory
-    },
+    //arastirma inceleme haber detay
     {
       path: "/:newsTitle",
       name: "arastirma-inceleme-details",
       props: true,
       component: () => import("./views/details/ArastirmaIncelemeNews.vue")
     },
-    //saglik
-    {
-      path: "/kategori/saglik",
-      name: "saglik",
-      component: SaglikCategory
-    },
+    //sağlık haber detay
     {
       path: "/:newsTitle",
       name: "saglik-details",
       props: true,
       component: () => import("./views/details/SaglikNews.vue")
     },
-    //universite
-    {
-      path: "/kategori/universite",
-      name: "universite",
-      component: UniversiteCategory
-    },
+    //universite haber detay
     {
       path: "/:newsTitle",
       name: "universite-details",
       props: true,
       component: () => import("./views/details/UniversiteNews.vue")
     },
+    //404 page
     {
       path: "/404/not-found",
       name: "not-found",

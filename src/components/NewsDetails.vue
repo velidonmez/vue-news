@@ -5,15 +5,14 @@
     </div>
     <div class="container news-details">
       <div class="row mx-auto">
-        
-          <news class="col-lg-4 order-1" :newsSource="newsSource" :category="category"></news>
-        
-          <news-content class="col-lg-8 order-0"
-            :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://panel.haberuskudar.com/uploads/content/images/'+news.image"
-            :title="news.title"
-            :details="news.post"
-          ></news-content>
-        
+        <news class="col-lg-4 order-1" :newsSource="newsSource" :category="category"></news>
+
+        <news-content
+          class="col-lg-8 order-0"
+          :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://panel.haberuskudar.com/uploads/content/images/'+news.image"
+          :title="news.title"
+          :details="news.post"
+        ></news-content>
       </div>
     </div>
   </div>
@@ -77,7 +76,7 @@ export default {
       await axios
         .get(apiUrl)
         .then(({ data }) => {
-          if (data.hasOwnProperty('data')) {
+          if (data.hasOwnProperty("data")) {
             this.news = data.data;
             //this.news = this.fillNewsDetails();
             //console.log(this.news);
@@ -107,38 +106,41 @@ export default {
   }, */
   metaInfo() {
     return {
-      title: this.news.title || 'Haber Üsküdar',
+      title: this.news.title || "Haber Üsküdar",
+      link: [
+        { rel: "canonical", href: "https://haberuskudar.com"+this.$route.path }
+      ],
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.news.explanation
         },
         {
-          property: 'article:publisher',
-          content: 'https://www.facebook.com/UskudarUniversitesi/'
+          property: "article:publisher",
+          content: "https://www.facebook.com/UskudarUniversitesi/"
         },
         {
-          property: 'og:site_name',
-          content: 'Üsküdar Üniversitesi'
+          property: "og:site_name",
+          content: "Üsküdar Üniversitesi"
         },
         {
-          property: 'og:title',
-          content: 'Haber Üsküdar - ' + this.news.title
+          property: "og:title",
+          content: "Haber Üsküdar - " + this.news.title
         },
         {
-          property: 'og:url',
-          content: this.$route.fullpath
+          property: "og:url",
+          content: this.$route.fullPath
         },
         {
-          property: 'og:image',
-          content: this.news.image || ''
+          property: "og:image",
+          content: this.news.image || ""
         },
         {
-          property: 'og:type',
-          content: 'article'
+          property: "og:type",
+          content: "article"
         }
       ]
-    }
+    };
   }
 };
 </script>
