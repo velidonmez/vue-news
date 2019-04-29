@@ -6,7 +6,6 @@ import InfiniteLoading from "vue-infinite-loading";
 import VueTimeago from "vue-timeago";
 import { VLazyImagePlugin } from "v-lazy-image";
 
-
 import "bootstrap";
 import "popper.js";
 import "./assets/app.scss";
