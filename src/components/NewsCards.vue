@@ -13,10 +13,10 @@
               }"
           >
             <div class="img-container">
-              <img
+              <SVG-filter-image
                 class="img-thumbnail"
                 :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://panel.haberuskudar.com/uploads/content/images/'+item.image"
-              >
+              ></SVG-filter-image>
             </div>
             <div class="card-img-overlay">
               <span class="badge badge-pill cat-notif">
@@ -33,7 +33,8 @@
               </div>
               <p class="card-text">
                 <small class="text-time">
-                  <em>{{ item.created_at.split("T")[0] }}</em>
+                  <em><timeago :datetime="item.created_at" :auto-update="60"></timeago></em>
+                  <!-- <em>{{ item.created_at.split("T")[0] }}</em> -->
                 </small>
               </p>
             </div>
@@ -48,6 +49,7 @@
   </section>
 </template>
 <script>
+import SVGFilterImage from "@/components/SVGFilterImage";
 import axios from "axios";
 export default {
   data() {
@@ -76,6 +78,9 @@ export default {
     };
   },
   name: "NewsCards",
+  components: {
+    SVGFilterImage
+  },
   props: {
     newsSource: {
       type: String,
@@ -183,5 +188,8 @@ export default {
 .text-time {
   color: #ff0000;
   font-weight: 600;
+}
+.news-title{
+  height: 70px;
 }
 </style>

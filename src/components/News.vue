@@ -19,9 +19,9 @@
           </router-link>
           <p class="w-100"></p>
           <span class="meta">
-            <span class="time">{{ item.created_at.split("T")[0] }} |</span>
+            <span class="time"><timeago :datetime="item.created_at" :auto-update="60"></timeago></span>
           </span>
-          <span class="time">{{ item.category.name }}</span>
+          <span class="time"> | {{ item.category.name }}</span>
         </li>
         <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
           <div slot="no-more">Liste sonu.</div>
