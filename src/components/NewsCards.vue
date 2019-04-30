@@ -4,7 +4,11 @@
       <h3 class="cat-title">{{title}}</h3>
     </div>
     <div class="row">
-      <div v-for="(item, $index) in list" :key="$index" class="card-content col-xs-6 col-md-4 col-sm-6 col-lg-3">
+      <div
+        v-for="(item, $index) in list"
+        :key="$index"
+        class="card-content col-xs-6 col-md-4 col-sm-6 col-lg-3"
+      >
         <div class="card mb-4">
           <router-link
             :to="{
@@ -13,10 +17,10 @@
               }"
           >
             <div class="img-container">
-              <SVG-filter-image
+              <v-lazy-image
                 class="img-thumbnail"
                 :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://panel.haberuskudar.com/uploads/content/images/'+item.image"
-              ></SVG-filter-image>
+              ></v-lazy-image>
             </div>
             <div class="card-img-overlay">
               <span class="badge badge-pill cat-notif">
@@ -33,7 +37,9 @@
               </div>
               <p class="card-text">
                 <small class="text-time">
-                  <em><timeago :datetime="item.created_at" :auto-update="60"></timeago></em>
+                  <em>
+                    <timeago :datetime="item.created_at" :auto-update="60"></timeago>
+                  </em>
                   <!-- <em>{{ item.created_at.split("T")[0] }}</em> -->
                 </small>
               </p>
@@ -49,7 +55,6 @@
   </section>
 </template>
 <script>
-import SVGFilterImage from "@/components/SVGFilterImage";
 import axios from "axios";
 export default {
   data() {
@@ -78,9 +83,6 @@ export default {
     };
   },
   name: "NewsCards",
-  components: {
-    SVGFilterImage
-  },
   props: {
     newsSource: {
       type: String,
@@ -189,7 +191,14 @@ export default {
   color: #ff0000;
   font-weight: 600;
 }
-.news-title{
+.news-title {
   height: 70px;
+}
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.7s;
+}
+.v-lazy-image-loaded {
+  filter: blur(0);
 }
 </style>
