@@ -1,16 +1,14 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import jQuery from "jquery";
 import InfiniteLoading from "vue-infinite-loading";
 import VueTimeago from "vue-timeago";
 import { VLazyImagePlugin } from "v-lazy-image";
-
-import "bootstrap";
-import "popper.js";
-import "./assets/app.scss";
-
-window.$ = window.jQuery = jQuery;
+import BootstrapVue from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "./assets/main.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 
 Vue.use(VLazyImagePlugin);
