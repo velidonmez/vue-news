@@ -9,7 +9,7 @@
 
         <news-content
           class="col-lg-8 order-0"
-          :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://panel.haberuskudar.com/uploads/content/images/'+news.image"
+          :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : '/uploads/content/images/'+news.image"
           :title="news.title"
           :details="news.post"
         ></news-content>
@@ -79,7 +79,7 @@ export default {
           if (data.hasOwnProperty("data")) {
             this.news = data.data;
             //this.news = this.fillNewsDetails();
-            //console.log(this.news);
+            console.log(this.news);
             //console.log(this.$route.params.newsTitle);
           } else {
             this.$router.push("/404/not-found");

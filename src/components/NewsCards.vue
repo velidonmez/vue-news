@@ -19,7 +19,7 @@
             <div class="img-container">
               <v-lazy-image
                 class="img-thumbnail"
-                :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : 'https://panel.haberuskudar.com/uploads/content/images/'+item.image"
+                :src="item.image === null ? require('@/assets/img/haberusk_placeholder.png') : '/uploads/content/images/'+item.image"
               ></v-lazy-image>
             </div>
             <div class="card-img-overlay">
