@@ -9,6 +9,7 @@ import KulturSanatCategory from "./views/category/KulturSanatCategory.vue";
 import SaglikCategory from "./views/category/SaglikCategory.vue";
 import UniversiteCategory from "./views/category/UniversiteCategory.vue";
 import ArastirmaIncelemeCategory from "./views/category/ArastirmaIncelemeCategory.vue";
+import Hakkimizda from "./views/details/Hakkimizda.vue";
 
 Vue.use(Router);
 Vue.use(Meta);
@@ -20,6 +21,12 @@ export default new Router({
     return { x: 0, y: 0 };
   },
   routes: [
+    //test hakkımızda
+    {
+      path: "/test",
+      name: "hakkimizda",
+      component: Hakkimizda
+    },
     //anasayfa
     {
       path: "/",
