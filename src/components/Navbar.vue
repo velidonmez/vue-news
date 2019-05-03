@@ -13,16 +13,8 @@
                 href="https://www.facebook.com/uskudaruniversitesi"
                 class="fab fa-facebook"
               ></a>
-              <a
-                target="_blank"
-                href="https://twitter.com/uskudaruni"
-                class="fab fa-twitter"
-              ></a>
-              <a
-                target="_blank"
-                href="https://instagram.com/uskudaruni"
-                class="fab fa-instagram"
-              ></a>
+              <a target="_blank" href="https://twitter.com/uskudaruni" class="fab fa-twitter"></a>
+              <a target="_blank" href="https://instagram.com/uskudaruni" class="fab fa-instagram"></a>
               <a
                 target="_blank"
                 href="https://www.youtube.com/user/uskudaruniversitesi"
@@ -42,7 +34,7 @@
                 src="../assets/img/haberuskudarlogo.png"
                 alt="logo"
                 class="mx-auto d-block img-fluid nav-logo"
-              />
+              >
             </router-link>
           </div>
         </div>
@@ -64,9 +56,29 @@
         <div class="navbar-collapse collapse" id="navbarSupportedContent">
           <ul class="nav navbar-nav m-auto">
             <li v-for="cat in list" :key="cat.id" class="nav-item">
-              <router-link class="nav-link" :to="{ name: cat.slug }">{{
+              <router-link class="nav-link" :to="{ name: cat.slug }">
+                {{
                 cat.name
-              }}</router-link>
+                }}
+              </router-link>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >Hakkımızda</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div v-for="about in aboutDropdownLinks" :key="about.id">
+                  <router-link class="dropdown-item" :to="{ path: '/test#v-pills-profile' }">
+                    {{ about.title }}
+                  </router-link>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -82,8 +94,8 @@ export default {
   data() {
     return {
       page: null,
-      categories: [],
-      list: []
+      list: [],
+      aboutDropdownLinks: []
     };
   },
   updated() {
@@ -103,6 +115,7 @@ export default {
   },
   mounted() {
     const api = "//panel.haberuskudar.com/api/content-categories";
+    const aboutLink = "https://panel.haberuskudar.com/api/pages";
     axios
       .get(api)
       .then(data => {
@@ -116,7 +129,18 @@ export default {
             },
             ...data.data.data
           );
-          this.$emit("cat-list",this.list);
+          this.$emit("cat-list", this.list);
+        }
+      })
+      .catch(e => {
+        throw new Error(e);
+      });
+    axios
+      .get(aboutLink)
+      .then(data => {
+        if (data.data.data) {
+          this.aboutDropdownLinks.push(...data.data.data);
+          this.$emit("about-list", this.aboutDropdownLinks);
         }
       })
       .catch(e => {
@@ -128,6 +152,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.dropdown-item:active {
+  background-color: transparent;
+}
 .nav-logo {
   width: 500px;
 }
@@ -186,7 +213,7 @@ header {
 .top-nav li a {
   color: #141517;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   padding: 0 10px;
   border-bottom: 2px solid #fff;
