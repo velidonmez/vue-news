@@ -93,13 +93,17 @@ export default {
   },
   data() {
     return {
-      list: []
+      list: [],
+      currentPageContent: ''
     };
   },
   methods: {
     //get emitted category info from navbar component
     fillList(list) {
       this.list = list;
+    },
+    fillCurrentPageContent() {
+      //TODO
     }
   }
 };
