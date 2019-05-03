@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row mx-auto">
-      <Navbar/>
+      <Navbar @cat-list="fillCatList" />
     </div>
     <div class="container anasayfa">
       <div class="row">
@@ -22,6 +22,18 @@ export default {
   components: {
     NewsCards,
     Navbar
+  },
+  data() {
+    return {
+      list: []
+    };
+  },
+  methods: {
+    //get emitted category info from navbar component
+    fillCatList(list) {
+      this.list = list;
+      console.log(this.list);
+    }
   }
 };
 </script>

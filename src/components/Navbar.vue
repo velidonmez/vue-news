@@ -61,7 +61,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse" id="navbarSupportedContent" style>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
           <ul class="nav navbar-nav m-auto">
             <li v-for="cat in list" :key="cat.id" class="nav-item">
               <router-link class="nav-link" :to="{ name: cat.slug }">{{
@@ -111,10 +111,12 @@ export default {
             {
               id: 0,
               slug: "anasayfa",
-              name: "Ana Sayfa"
+              name: "Ana Sayfa",
+              category: "haber"
             },
             ...data.data.data
           );
+          this.$emit("cat-list",this.list);
         }
       })
       .catch(e => {
