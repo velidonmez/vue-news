@@ -51,12 +51,45 @@ export default {
   watch: {
     $route() {
       // react to route changes...
-      //console.log(this.$route.params.newsId);
       const currSlug = this.$route.params.menuSlug;
       this.currentPageContent = this.list.find(el => {
         return currSlug == el.slug ? el.id : 0
       });
     }
+  },
+  metaInfo() {
+    return {
+      title: this.currentPageContent.title || "Haber Üsküdar",
+      link: [
+        { rel: "canonical", href: "https://haberuskudar.com"+this.$route.path }
+      ],
+      meta: [
+        {
+          name: "description",
+          content: this.currentPageContent.explanation
+        },
+        {
+          property: "article:publisher",
+          content: "https://www.facebook.com/UskudarUniversitesi/"
+        },
+        {
+          property: "og:site_name",
+          content: "Üsküdar Üniversitesi"
+        },
+        {
+          property: "og:title",
+          content: "Haber Üsküdar - " + this.currentPageContent.title
+        },
+        {
+          property: "og:url",
+          content: this.$route.fullPath
+        },
+        {
+          property: "og:type",
+          content: "about"
+        }
+      ]
+    };
   }
 };
 </script>

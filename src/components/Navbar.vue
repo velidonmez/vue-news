@@ -62,7 +62,7 @@
                 }}
               </router-link>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" v-if="aboutDropdownLinks.length">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"

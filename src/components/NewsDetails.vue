@@ -71,22 +71,16 @@ export default {
     fillNewsDetails: async function() {
       const id = this.$route.params.newsTitle;
       const apiUrl = "https://panel.haberuskudar.com/api/content-detail/" + id;
-      //console.log(apiUrl);
-      //console.log(this.$route.params.newsId);
       await axios
         .get(apiUrl)
         .then(({ data }) => {
           if (data.hasOwnProperty("data")) {
             this.news = data.data;
-            //this.news = this.fillNewsDetails();
-            console.log(this.news);
-            //console.log(this.$route.params.newsTitle);
           } else {
             this.$router.push("/404/not-found");
           }
         })
         .catch(err => {
-          console.log(err);
           this.$router.push("/");
         });
     }
@@ -94,7 +88,6 @@ export default {
   watch: {
     $route() {
       // react to route changes...
-      //console.log(this.$route.params.newsId);
       this.news = this.fillNewsDetails();
     }
   },
