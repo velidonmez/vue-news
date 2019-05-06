@@ -74,9 +74,11 @@
               >Hakkımızda</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <div v-for="about in aboutDropdownLinks" :key="about.id">
-                  <router-link class="dropdown-item" :to="{ path: '/test#v-pills-profile' }">
-                    {{ about.title }}
-                  </router-link>
+                  <router-link
+                    class="dropdown-item"
+                    :to="{ name: 'hakkimizda',
+                params: { menuSlug: about.slug } }"
+                  >{{ about.title }}</router-link>
                 </div>
               </div>
             </li>
@@ -110,7 +112,6 @@ export default {
     $route() {
       // react to route changes...
       this.page = this.$route.path;
-      //console.log(this.$route.path);
     }
   },
   mounted() {

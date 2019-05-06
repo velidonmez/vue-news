@@ -23,7 +23,7 @@ export default new Router({
   routes: [
     //test hakkımızda
     {
-      path: "/hakkimizda/:menuSlug",
+      path: "/info/:menuSlug",
       name: "hakkimizda",
       component: Hakkimizda
     },

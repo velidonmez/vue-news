@@ -3,6 +3,7 @@
     <div class="sidebar-sticky">
       <ul class="nav flex-column" id="v-pills-tab" role="tablist">
         <li v-for="item in menuItems" :key="item.id" class="nav-item">
+          <!-- TODO class active for links :class="this.$route.params.menuSlug == item.slug ? 'active' : false" ???-->
           <router-link
             class="nav-link"
             :to="{
@@ -12,17 +13,6 @@
           >
             {{ item.title }}
           </router-link>
-          <!-- <a
-            class="nav-link"
-            id="v-pills-home-tab"
-            data-toggle="pill"
-            href="#v-pills-home"
-            role="tab"
-            aria-controls="v-pills-home"
-            aria-selected="true"
-          >
-            {{item.title}}
-          </a> -->
         </li>
       </ul>
     </div>
