@@ -103,10 +103,7 @@ export default {
     return {
       title: this.news.title || "Haber Üsküdar",
       link: [
-        {
-          rel: "canonical",
-          href: "https://haberuskudar.com" + this.$route.path
-        }
+        { rel: "canonical", href: "https://haberuskudar.com"+this.$route.path }
       ],
       meta: [
         {
@@ -137,21 +134,7 @@ export default {
           property: "og:type",
           content: "article"
         }
-      ],
-      script: [
-        {
-          headline: this.news.title,
-          vmid: "ldjson-schema",
-          innerHTML:
-            '{ "@context": "http://schema.org", "@type": "NewsArticle"}',
-          type: "application/ld+json",
-          datePublished: this.news.created_at,
-          
-        }
-      ],
-      __dangerouslyDisableSanitizersByTagID: {
-        "ldjson-schema": ["innerHTML"]
-      }
+      ]
     };
   }
 };
