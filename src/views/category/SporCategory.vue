@@ -7,20 +7,26 @@
       <div class="row">
         <p class="w-100"></p>
       </div>
-      <NewsCards category="spor-details" newsSource="//panel.haberuskudar.com/api/category-contents/spor"></NewsCards>
+      <NewsCards
+        category="spor-details"
+        newsSource="//panel.haberuskudar.com/api/category-contents/spor"
+      ></NewsCards>
     </div>
+    <custom-footer/>
   </div>
 </template>
 <script>
 // @ is an alias to /src
 import NewsCards from "@/components/NewsCards.vue";
 import Navbar from "@/components/Navbar.vue";
+import CustomFooter from "@/components/CustomFooter.vue";
 
 export default {
-  name: "fresh",
+  name: "spor",
   components: {
     NewsCards,
-    Navbar
+    Navbar,
+    CustomFooter
   }
 };
 </script>

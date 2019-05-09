@@ -6,7 +6,6 @@
     <div class="container news-details">
       <div class="row mx-auto">
         <news class="col-lg-4 order-1" :newsSource="newsSource" :category="category"></news>
-
         <news-content
           class="col-lg-8 order-0"
           :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : '/uploads/content/images/'+news.image"
@@ -15,6 +14,7 @@
         ></news-content>
       </div>
     </div>
+    <custom-footer/>
   </div>
 </template>
 <script>
@@ -22,6 +22,7 @@ import axios from "axios";
 import NewsContent from "@/components/NewsContent.vue";
 import News from "@/components/News.vue";
 import Navbar from "@/components/Navbar.vue";
+import CustomFooter from "@/components/CustomFooter.vue";
 export default {
   data() {
     return {
@@ -37,7 +38,8 @@ export default {
   components: {
     NewsContent,
     Navbar,
-    News
+    News,
+    CustomFooter
   },
   props: {
     newsSource: {

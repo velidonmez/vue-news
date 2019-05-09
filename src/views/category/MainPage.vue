@@ -9,6 +9,7 @@
       </div>
       <NewsCards category="haber" newsSource="//panel.haberuskudar.com/api/contents"></NewsCards>
     </div>
+    <custom-footer />
   </div>
 </template>
 
@@ -16,12 +17,14 @@
 // @ is an alias to /src
 import NewsCards from "@/components/NewsCards.vue";
 import Navbar from "@/components/Navbar.vue";
+import CustomFooter from "@/components/CustomFooter.vue";
 
 export default {
   name: "anasayfa",
   components: {
     NewsCards,
-    Navbar
+    Navbar,
+    CustomFooter
   }
 };
 </script>

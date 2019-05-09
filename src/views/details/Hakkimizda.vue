@@ -21,16 +21,19 @@
         </main>
       </div>
     </div>
+    <custom-footer/>
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
 import SideMenu from "@/components/SideMenu.vue";
+import CustomFooter from "@/components/CustomFooter.vue";
 export default {
   components: {
     Navbar,
-    SideMenu
+    SideMenu,
+    CustomFooter
   },
   data() {
     return {

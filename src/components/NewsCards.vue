@@ -62,6 +62,7 @@ export default {
       currentPage: this.$route.name,
       page: 1,
       list: [],
+      //TODO: find a better way for this
       title:
         this.$route.name == "haber"
           ? "Anasayfa"
