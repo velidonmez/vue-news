@@ -3,12 +3,13 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6 text-left">
-          <small>© 2018 ÜSKÜDAR ÜNİVERSİTESİ / Her Hakkı Saklıdır.</small>
+          <small>© 2019 HABER ÜSKÜDAR / Her Hakkı Saklıdır.</small>
         </div>
         <div class="col-sm-6 text-right">
-          <!-- <small>
-            <a href="mailto:yazilimekibi@uskudar.edu.tr">yazilimekibi@uskudar.edu.tr</a>
-          </small> -->
+          <small>
+            <small>YAZILIM VE PLANLAMA BİRİMİ</small>
+            <!-- <a href="mailto:yazilimekibi@uskudar.edu.tr">yazilimekibi@uskudar.edu.tr</a> -->
+          </small>
         </div>
       </div>
     </div>

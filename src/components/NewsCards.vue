@@ -167,7 +167,7 @@ export default {
   background-color: #004c4c;
 }
 .img-container {
-  height: 8em;
+  height: 9.5em;
   overflow: hidden;
 }
 .card {
