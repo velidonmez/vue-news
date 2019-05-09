@@ -120,6 +120,12 @@ export default {
   metaInfo() {
     return {
       title: this.title + " - Haber Üsküdar",
+      link: [
+        {
+          rel: "canonical",
+          href: "https://haberuskudar.com" + this.$route.path
+        }
+      ],
       meta: [
         {
           name: "description",
@@ -141,7 +147,19 @@ export default {
           property: "og:url",
           content: this.$route.fullpath
         }
-      ]
+      ],
+      script: [
+        {
+          headline: "Haber Üsküdar " + this.title + "Sayfası",
+          vmid: "ldjson-schema",
+          innerHTML:
+            '{ "@context": "http://schema.org", "@type": "NewsArticle"}',
+          type: "application/ld+json"
+        }
+      ],
+      __dangerouslyDisableSanitizersByTagID: {
+        "ldjson-schema": ["innerHTML"]
+      }
     };
   }
 };
