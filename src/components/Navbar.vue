@@ -55,8 +55,16 @@
         </button>
         <div class="navbar-collapse collapse" id="navbarSupportedContent">
           <ul class="nav navbar-nav m-auto">
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ path: '/'}">Ana Sayfa</router-link>
+            </li>
             <li v-for="cat in list" :key="cat.id" class="nav-item">
-              <router-link class="nav-link" :to="{ name: cat.slug }">
+              <router-link
+                class="nav-link"
+                :to="{ path: cat.slug, 
+                params: { categoryId: cat.id.toString(), category: cat.slug }
+              }"
+              >
                 {{
                 cat.name
                 }}
@@ -121,15 +129,7 @@ export default {
       .get(api)
       .then(data => {
         if (data.data.data) {
-          this.list.push(
-            {
-              id: 0,
-              slug: "anasayfa",
-              name: "Ana Sayfa",
-              category: "haber"
-            },
-            ...data.data.data
-          );
+          this.list.push(...data.data.data);
           this.$emit("cat-list", this.list);
         }
       })

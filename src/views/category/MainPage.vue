@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row mx-auto">
-      <Navbar />
+      <Navbar/>
     </div>
     <div class="container anasayfa">
       <div class="row">
@@ -9,7 +9,7 @@
       </div>
       <NewsCards category="haber" newsSource="//panel.haberuskudar.com/api/contents"></NewsCards>
     </div>
-    <custom-footer />
+    <custom-footer/>
   </div>
 </template>
 
@@ -18,7 +18,7 @@
 import NewsCards from "@/components/NewsCards.vue";
 import Navbar from "@/components/Navbar.vue";
 import CustomFooter from "@/components/CustomFooter.vue";
-
+import axios from "axios";
 export default {
   name: "anasayfa",
   components: {
