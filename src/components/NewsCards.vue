@@ -173,7 +173,7 @@ export default {
 .card {
   float: left;
   width: 100%;
-  height: 16em;
+  height: 18em;
   overflow: hidden;
 }
 .title-small {

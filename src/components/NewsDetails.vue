@@ -14,7 +14,7 @@
         ></news-content>
       </div>
     </div>
-    <custom-footer/>
+    <custom-footer class="d-none d-sm-none d-md-none d-lg-block"/>
   </div>
 </template>
 <script>
