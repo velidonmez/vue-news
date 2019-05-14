@@ -8,9 +8,10 @@
         <news class="col-lg-4 order-1" :newsSource="newsSource" :category="category"></news>
         <news-content
           class="col-lg-8 order-0"
-          :image="news.image === null ? require('@/assets/img/haberusk_placeholder.png') : '/uploads/content/images/'+news.image"
+          :image="news.image"
           :title="news.title"
           :details="news.post"
+          :date="news.created_at"
         ></news-content>
       </div>
     </div>

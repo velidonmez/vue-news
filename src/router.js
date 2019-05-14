@@ -11,6 +11,7 @@ import UniversiteCategory from "./views/category/UniversiteCategory.vue";
 import ArastirmaIncelemeCategory from "./views/category/ArastirmaIncelemeCategory.vue";
 import YasamCategory from "./views/category/YasamCategory.vue";
 import Hakkimizda from "./views/details/Hakkimizda.vue";
+//import Arama from "./views/details/Arama.vue";
 
 Vue.use(Router);
 Vue.use(Meta);
@@ -22,7 +23,13 @@ export default new Router({
     return { x: 0, y: 0 };
   },
   routes: [
-    //test hakkımızda
+    //arama
+/*     {
+      path: "/arama",
+      name: "arama",
+      component: Arama
+    }, */
+    //hakkımızda
     {
       path: "/info/:menuSlug",
       name: "hakkimizda",
