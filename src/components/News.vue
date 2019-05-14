@@ -19,7 +19,7 @@
           </router-link>
           <p class="w-100"></p>
           <span class="meta">
-            <span class="time"><timeago :datetime="item.created_at" :auto-update="60"></timeago></span>
+            <span class="time"><timeago :datetime="item.updated_at" :auto-update="60"></timeago></span>
           </span>
           <span class="time"> | {{ item.category.name }}</span>
         </li>

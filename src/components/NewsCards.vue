@@ -38,7 +38,7 @@
               <p class="card-text">
                 <small class="text-time">
                   <em>
-                    <timeago :datetime="item.created_at" :auto-update="60"></timeago>
+                    <timeago :datetime="item.updated_at" :auto-update="60"></timeago>
                   </em>
                   <!-- <em>{{ item.created_at.split("T")[0] }}</em> -->
                 </small>

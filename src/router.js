@@ -9,6 +9,7 @@ import KulturSanatCategory from "./views/category/KulturSanatCategory.vue";
 import SaglikCategory from "./views/category/SaglikCategory.vue";
 import UniversiteCategory from "./views/category/UniversiteCategory.vue";
 import ArastirmaIncelemeCategory from "./views/category/ArastirmaIncelemeCategory.vue";
+import YasamCategory from "./views/category/YasamCategory.vue";
 import Hakkimizda from "./views/details/Hakkimizda.vue";
 
 Vue.use(Router);
@@ -38,6 +39,12 @@ export default new Router({
       path: "/spor",
       name: "spor",
       component: SporCategory
+    },
+    //yasam
+    {
+      path: "/yasam",
+      name: "yasam",
+      component: YasamCategory
     },
     //medya-iletisim
     {
@@ -88,6 +95,13 @@ export default new Router({
       name: "spor-details",
       props: true,
       component: () => import("./views/details/SporNews.vue")
+    },
+    //yasam haber detay
+    {
+      path: "/:newsTitle",
+      name: "yasam-details",
+      props: true,
+      component: () => import("./views/details/YasamNews.vue")
     },
     //medya iletisim haber detay
     {
