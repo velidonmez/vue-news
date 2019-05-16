@@ -12,23 +12,28 @@
         </small>
       </p>
       <div class="float-right">
-        <!-- Your share button code -->
-        <div
-          class="fb-share-button"
-          :data-href="'https://haberuskudar.com/'+slug"
-          data-layout="button"
-        ></div>
-        <a
-          :href="'https://twitter.com/intent/tweet?text='+ twitterTitle"
-          class="twitter-share-button"
-          data-show-count="false"
-        >Tweet</a>
+        <social-sharing
+          :url="'https://haberuskudar.com/'+slug"
+          :title="title"
+          :description="explanation"
+          inline-template
+        >
+          <div>
+            <span class="content">Paylaş:</span>
+            <network network="facebook">
+              <i class="fab fa-facebook"></i> Facebook
+            </network>
+            <network network="twitter">
+              <i class="fab fa-twitter"></i> Twitter
+            </network>
+          </div>
+        </social-sharing>
       </div>
     </div>
-    <!-- <div class="category d-flex mt-3">
-      <span>Kategori: </span>
-      <span>{{category}}</span>
-    </div> -->
+    <div class="category d-flex mt-3">
+      <span class="content">Kategori:</span>
+      <router-link class="content" :to="{ name: category.slug }">{{ category.name }}</router-link>
+    </div>
     <h1>{{ title }}</h1>
     <div v-html="details" class="details"></div>
   </article>
@@ -43,37 +48,24 @@ export default {
     details: String,
     date: String,
     slug: String,
-    category: String
-  },
-  data() {
-    return {
-      twitterTitle: ""
-    };
-  },
-  mounted() {
-    this.twitterTitle = this.$route.path.replace(/-/gi, " ").replace("/", "");
-    let twitterScript = document.createElement("script");
-    twitterScript.setAttribute(
-      "src",
-      "https://platform.twitter.com/widgets.js"
-    );
-    document.head.appendChild(twitterScript);
-
-    (function(d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
+    explanation: String,
+    category: Object
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.category .content {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+}
+.details img {
+  max-width: 100% !important;
+}
 .v-lazy-image {
   filter: blur(10px);
   transition: filter 0.7s;

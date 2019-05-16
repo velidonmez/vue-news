@@ -13,7 +13,8 @@
           :details="news.post"
           :date="news.created_at"
           :slug="news.slug"
-          :category="category"
+          :category="news.category"
+          :explanation="news.explanation"
         ></news-content>
       </div>
     </div>
@@ -82,7 +83,9 @@ export default {
         .then(({ data }) => {
           if (data.hasOwnProperty("data")) {
             this.news = data.data;
-            this.news.created_at = moment(this.news.created_at).format("DD.MM.YYYY HH:mm");
+            this.news.created_at = moment(this.news.created_at).format(
+              "DD.MM.YYYY HH:mm"
+            );
           } else {
             this.$router.push("/404/not-found");
           }
@@ -108,7 +111,10 @@ export default {
     return {
       title: this.news.title || "Haber Üsküdar",
       link: [
-        { rel: "canonical", href: "https://haberuskudar.com"+this.$route.path }
+        {
+          rel: "canonical",
+          href: "https://haberuskudar.com" + this.$route.path
+        }
       ],
       meta: [
         {

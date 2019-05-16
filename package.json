@@ -19,6 +19,7 @@
     "vue-infinite-loading": "^2.4.3",
     "vue-meta": "^1.6.0",
     "vue-router": "^3.0.1",
+    "vue-social-sharing": "^2.4.3",
     "vue-timeago": "^5.1.2"
   },
   "devDependencies": {

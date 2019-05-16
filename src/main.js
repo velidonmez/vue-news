@@ -8,10 +8,11 @@ import "./assets/main.css";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import jQuery from "jquery";
+import SocialSharing from "vue-social-sharing";
 window.$ = window.jQuery = jQuery;
 
 Vue.config.productionTip = false;
-
+Vue.use(SocialSharing);
 Vue.use(VLazyImagePlugin);
 Vue.use(VueTimeago, {
   name: "Timeago", // Component name, `Timeago` by default

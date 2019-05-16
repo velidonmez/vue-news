@@ -140,8 +140,8 @@ export default {
     });
   },
   methods: {
-    handleSubmit(){
-      this.$router.push({ path: `/arama?q=${this.searchQuery}` })
+    handleSubmit() {
+      this.$router.push({ path: `/arama?q=${this.searchQuery}` });
     }
   },
   watch: {
