@@ -159,7 +159,9 @@ export default {
 /* .card-content {
   margin-left: -15px;
 } */
-
+.news-cards {
+  margin-top: 180px;
+}
 .cat-notif {
   vertical-align: middle;
   margin-left: -15px;

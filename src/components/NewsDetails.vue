@@ -156,3 +156,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.news-details {
+  margin-top: 180px;
+}
+</style>

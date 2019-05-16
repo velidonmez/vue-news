@@ -1,5 +1,5 @@
 <template>
-  <header class="float-left w-100">
+  <header class="header-fixed float-left w-100">
     <div class="small-top float-left w-100">
       <div class="container-fluid">
         <div class="row px-3">
@@ -189,6 +189,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.header-fixed {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
 .dropdown-item:active {
   background-color: transparent;
 }
