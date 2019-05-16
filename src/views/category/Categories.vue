@@ -37,7 +37,7 @@ export default {
   },
   mounted() {
     this.newsSource =
-        "//panel.haberuskudar.com/api/category-contents" + this.$route.path;
+      "//panel.haberuskudar.com/api/category-contents" + this.$route.path;
   },
   computed: {
     grabContent() {
@@ -53,11 +53,14 @@ export default {
     }
   },
   watch: {
-    $route() {
-      // react to route changes...
-      console.log(this.$route.path);
-      this.newsSource =
-        "//panel.haberuskudar.com/api/category-contents" + this.$route.path;
+    $route: {
+      handler() {
+        // react to route changes...
+        console.log(this.$route.path);
+        this.newsSource =
+          "//panel.haberuskudar.com/api/category-contents" + this.$route.path;
+      },
+      deep: true
     }
   }
 };
