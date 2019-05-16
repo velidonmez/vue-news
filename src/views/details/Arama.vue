@@ -13,26 +13,27 @@
 </template>
 
 <script>
-(function() {
-  var cx = "014726956206410030649:t8cinleklew";
-  var gcse = document.createElement("script");
-  gcse.type = "text/javascript";
-  gcse.async = true;
-  gcse.src = "https://cse.google.com/cse.js?cx=" + cx;
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(gcse, s);
-})();
-
 import NewsCards from "@/components/NewsCards.vue";
 import Navbar from "@/components/Navbar.vue";
 import CustomFooter from "@/components/CustomFooter.vue";
 
 export default {
-  name: "yasam",
+  name: "arama",
   components: {
     NewsCards,
     Navbar,
     CustomFooter
+  },
+  created() {
+    (function() {
+      var cx = "014726956206410030649:t8cinleklew";
+      var gcse = document.createElement("script");
+      gcse.type = "text/javascript";
+      gcse.async = true;
+      gcse.src = "https://cse.google.com/cse.js?cx=" + cx;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
   }
 };
 </script>

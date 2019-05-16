@@ -12,6 +12,8 @@
           :title="news.title"
           :details="news.post"
           :date="news.created_at"
+          :slug="news.slug"
+          :category="category"
         ></news-content>
       </div>
     </div>
@@ -24,6 +26,7 @@ import NewsContent from "@/components/NewsContent.vue";
 import News from "@/components/News.vue";
 import Navbar from "@/components/Navbar.vue";
 import CustomFooter from "@/components/CustomFooter.vue";
+import moment from "moment";
 export default {
   data() {
     return {
@@ -79,6 +82,7 @@ export default {
         .then(({ data }) => {
           if (data.hasOwnProperty("data")) {
             this.news = data.data;
+            this.news.created_at = moment(this.news.created_at).format("DD.MM.YYYY HH:mm");
           } else {
             this.$router.push("/404/not-found");
           }
@@ -134,6 +138,11 @@ export default {
         {
           property: "og:type",
           content: "article"
+        },
+        ,
+        {
+          property: "og:description",
+          content: this.news.explanation
         }
       ]
     };

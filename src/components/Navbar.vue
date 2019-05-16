@@ -31,7 +31,7 @@
           <div class="col">
             <router-link to="/">
               <img
-                src="../assets/img/haberuskudarlogo.png"
+                src="../assets/img/haberuskudarlogooneri.jpg"
                 alt="logo"
                 class="mx-auto d-block img-fluid nav-logo"
               >
@@ -83,6 +83,36 @@
               </div>
             </li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown open">
+              <a
+                href="#"
+                data-toggle="dropdown"
+                class="search-toggle dropdown-toggle"
+                aria-expanded="true"
+              >
+                <i class="fa fa-search"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li></li>
+                <li>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Arama.."
+                      v-model="searchQuery"
+                    >
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="pull-right">
+                      <button @click="handleSubmit" class="btn btn-primary small">ARA</button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </nav>
     </section>
@@ -97,7 +127,8 @@ export default {
     return {
       page: null,
       list: [],
-      aboutDropdownLinks: []
+      aboutDropdownLinks: [],
+      searchQuery: ""
     };
   },
   updated() {
@@ -107,6 +138,11 @@ export default {
       this.$emit("newsCategory", this.category);
       //console.log(this.category);
     });
+  },
+  methods: {
+    handleSubmit(){
+      this.$router.push({ path: `/arama?q=${this.searchQuery}` })
+    }
   },
   watch: {
     $route() {
@@ -240,5 +276,33 @@ header {
 .card-img-overlay {
   padding-left: 1em !important;
   padding-top: 0.5em !important;
+}
+/*navbar search*/
+.navbar-right {
+  position: static;
+}
+.navbar-right .dropdown {
+  position: static;
+}
+.navbar-right .dropdown ul.dropdown-menu {
+  /* width: 25%; */
+  left: auto;
+  right: 0;
+  margin-top: 1px;
+  box-shadow: none;
+  border: 1px solid #efefef;
+  padding: 0;
+  background: #e6e6e6;
+}
+.navbar-right .dropdown ul.dropdown-menu li {
+  margin-right: 10px;
+}
+.navbar-right .dropdown ul.dropdown-menu .form-control {
+  margin-top: 10px;
+  border: 1px solid #efefef;
+}
+.navbar-right .dropdown ul.dropdown-menu .btn {
+  margin: 10px 0 20px;
+  background-color: #004c4c;
 }
 </style>
