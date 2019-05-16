@@ -3,6 +3,11 @@
     <div class="row mx-auto">
       <Navbar/>
     </div>
+    <div class="container">
+      <div class="row ml-auto">
+        <h3 class="cat-title">Arama Sonuçları</h3>
+      </div>
+    </div>
     <div class="container yasam">
       <gcse:searchbox></gcse:searchbox>
       <gcse:searchresults></gcse:searchresults>

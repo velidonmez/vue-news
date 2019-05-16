@@ -13,7 +13,7 @@
           :details="news.post"
           :date="news.created_at"
           :slug="news.slug"
-          :category="news.category"
+          :detailCategory="news.category"
           :explanation="news.explanation"
         ></news-content>
       </div>
@@ -35,7 +35,8 @@ export default {
       news: {
         title: "Yükleniyor...",
         details: "Yükleniyor...",
-        image: null
+        image: null,
+        category: { slug: "" }
       }
     };
   },

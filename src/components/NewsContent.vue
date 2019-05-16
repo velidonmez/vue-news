@@ -32,7 +32,7 @@
     </div>
     <div class="category d-flex mt-3">
       <span class="content">Kategori:</span>
-      <router-link class="content" :to="{ name: category.slug }">{{ category.name }}</router-link>
+      <router-link class="content" :to="{ name: detailCategory.slug }">{{ detailCategory.name }}</router-link>
     </div>
     <h1>{{ title }}</h1>
     <div v-html="details" class="details"></div>
@@ -49,7 +49,7 @@ export default {
     date: String,
     slug: String,
     explanation: String,
-    category: Object
+    detailCategory: Object
   }
 };
 </script>
