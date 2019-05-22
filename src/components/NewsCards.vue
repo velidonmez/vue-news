@@ -120,7 +120,10 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.title + " - Haber Üsküdar",
+      title:
+        this.$route.name == "anasayfa"
+          ? "Üsküdar Üniversitesi İletişim Fakültesi Uygulama Gazetesi"
+          : this.title + " - Haber Üsküdar",
       link: [
         {
           rel: "canonical",
@@ -130,7 +133,10 @@ export default {
       meta: [
         {
           name: "description",
-          content: "Haber Üsküdar " + this.title + "Sayfası"
+          content:
+            this.$route.name == "anasayfa"
+              ? "Üsküdar Üniversitesi İletişim Fakültesi öğrencilerinin yaptıkları haberlerin yayımlandığı bir haber sitesidir. Etik ilkelere özen gösterilir."
+              : "Haber Üsküdar " + this.title + "Sayfası"
         },
         {
           property: "article:publisher",

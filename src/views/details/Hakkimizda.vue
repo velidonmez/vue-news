@@ -3,7 +3,7 @@
     <div class="row mx-auto">
       <Navbar @about-list="fillListAndContent"/>
     </div>
-    <div class="container">
+    <div class="about-main container">
       <div class="row">
         <side-menu :menuItems="list"/>
         <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -97,6 +97,9 @@ export default {
 };
 </script>
 <style scoped>
+.about-main{
+  margin-top: 180px;
+}
 .tab-content {
   padding: 48px 0 0;
 }
@@ -104,7 +107,7 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 100;
+  z-index: 0;
   padding: 48px 0 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
 }

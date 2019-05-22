@@ -11,19 +11,20 @@
           <em>{{ date }}</em>
         </small>
       </p>
-      <div class="float-right">
+      <div class="social float-right">
         <social-sharing
           :url="'https://haberuskudar.com/'+slug"
           :title="title"
           :description="explanation"
           inline-template
+          network-tag="a"
         >
           <div>
-            <span class="content">Paylaş:</span>
-            <network network="facebook">
+            <span class="content">Paylaş: </span>
+            <network network="facebook" class="x">
               <i class="fab fa-facebook"></i> Facebook
             </network>
-            <network network="twitter">
+            <network network="twitter" class="x">
               <i class="fab fa-twitter"></i> Twitter
             </network>
           </div>
@@ -93,5 +94,8 @@ export default {
 .fb-share-button {
   top: -6px !important;
   right: 6px !important;
+}
+.social{
+  cursor: pointer;
 }
 </style>

@@ -8,7 +8,7 @@
         <h3 class="cat-title">Arama Sonuçları</h3>
       </div>
     </div>
-    <div class="container yasam">
+    <div class="container arama">
       <gcse:searchbox></gcse:searchbox>
       <gcse:searchresults></gcse:searchresults>
     </div>
@@ -42,3 +42,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.arama {
+  margin-top: 180px;
+}
+</style>
