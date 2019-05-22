@@ -190,10 +190,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header-fixed {
-  overflow: hidden;
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 1;
 }
 .dropdown-item:active {
   background-color: transparent;
@@ -306,6 +305,7 @@ header {
 .navbar-right .dropdown ul.dropdown-menu .form-control {
   margin-top: 10px;
   border: 1px solid #efefef;
+  margin-right: 5px;
 }
 .navbar-right .dropdown ul.dropdown-menu .btn {
   margin: 10px 0 20px;

@@ -114,7 +114,11 @@ export default {
       link: [
         {
           rel: "canonical",
-          href: "https://haberuskudar.com" + this.$route.path
+          href: "https://haberuskudar.com/" + this.news.slug
+        },
+        {
+          rel: "amphtml",
+          href: "https://amp.haberuskudar.com/" + this.news.slug
         }
       ],
       meta: [
