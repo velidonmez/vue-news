@@ -122,7 +122,7 @@ export default {
     return {
       title:
         this.$route.name == "anasayfa"
-          ? "Üsküdar Üniversitesi İletişim Fakültesi Uygulama Gazetesi"
+          ? "Haber Üsküdar | Üsküdar Üniversitesi İletişim Fakültesi Uygulama Gazetesi"
           : this.title + " - Haber Üsküdar",
       link: [
         {
@@ -135,7 +135,7 @@ export default {
           name: "description",
           content:
             this.$route.name == "anasayfa"
-              ? "Üsküdar Üniversitesi İletişim Fakültesi öğrencilerinin yaptıkları haberlerin yayımlandığı bir haber sitesidir. Etik ilkelere özen gösterilir."
+              ? "Haber Üsküdar, Üsküdar Üniversitesi İletişim Fakültesi öğrencilerinin yaptıkları haberlerin yayımlandığı bir haber sitesidir. Etik ilkelere özen gösterilir."
               : "Haber Üsküdar " + this.title + "Sayfası"
         },
         {
