@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row mx-auto">
-      <Navbar/>
+      <Navbar />
     </div>
     <div class="container news-details">
       <div class="row mx-auto">
@@ -18,7 +18,8 @@
         ></news-content>
       </div>
     </div>
-    <custom-footer class="d-none d-sm-none d-md-none d-lg-block"/>
+    <custom-footer class="d-none d-sm-none d-md-none d-lg-block" />
+    <script v-html="jsonld" type="application/ld+json"></script>
   </div>
 </template>
 <script>
@@ -37,7 +38,8 @@ export default {
         details: "Yükleniyor...",
         image: null,
         category: { slug: "" }
-      }
+      },
+      jsonld: {}
     };
   },
   name: "newsdetails",
@@ -91,23 +93,53 @@ export default {
             this.$router.push("/404/not-found");
           }
         })
-        .catch(err => {
+        .catch(() => {
           this.$router.push("/");
         });
+    },
+    fillJSON: function() {
+      const jsonld = {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": "https://google.com/article"
+        },
+        headline: this.news.title,
+        image: [this.news.image],
+        datePublished: this.news.created_at,
+        dateModified: this.news.updated_at,
+        author: {
+          "@type": "Person",
+          name: "Üsküdar Üniversitesi"
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Üsküdar Üniversitesi",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://uskudar.edu.tr/assets/v2/dist/img/logo.svg"
+          }
+        },
+        description: this.news.explanation
+      };
+      this.jsonld = jsonld;
     }
   },
   watch: {
     $route() {
       // react to route changes...
+      /*TODO: fix meta and jsonld error*/
       this.news = this.fillNewsDetails();
+      this.fillJSON();
     }
   },
-  created() {
-    this.fillNewsDetails();
+  async mounted() {
+    await this.fillNewsDetails();
+    this.fillJSON();
+    console.log(this.news);
+    //this.scroll();
   },
-  /* mounted() {
-    this.scroll();
-  }, */
   metaInfo() {
     return {
       title: this.news.title || "Haber Üsküdar",
@@ -150,7 +182,6 @@ export default {
           property: "og:type",
           content: "article"
         },
-        ,
         {
           property: "og:description",
           content: this.news.explanation
