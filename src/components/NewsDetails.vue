@@ -176,7 +176,8 @@ export default {
         },
         {
           property: "og:image",
-          content: this.news.image || ""
+          content:
+            "https://m.media-amazon.com/images/G/01/imdb/images-ANDW73HA/imdb_fb_logo._CB1542065250_.png"
         },
         {
           property: "og:type",
